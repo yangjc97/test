@@ -1,14 +1,14 @@
 个人博客模板--基于Jekyll+Github构建。
 ================
 
-#### 1.博客地址
+## 1.博客地址
 http://www.panxw.com, 支持PC与智能机访问。  
 
-#### 2.环境准备
+## 2.环境准备
 1.安装ruby环境。  
 2.安装bundler工具。(gem install bundler)。  
 
-#### 3.使用本项目作为博客模板，操作步骤：
+## 3.使用本项目作为博客模板，操作步骤：
 1,首先Fork或Download本项目代码，进入根目录执行bundle install。  
 2,修改BLOGSYS/_config.yaml及BLOGSYS/about.md文件，配置站点、栏目及个人信息。  
 3,修改BLOGSYS/_include目录下相关文件，以配置网站统计(analytics.html)，网友评论(comment.html)，右侧栏目(categories.html)等。  
@@ -19,18 +19,18 @@ http://www.panxw.com, 支持PC与智能机访问。
 8,将_site目录下所有文件复制到根目录。  
 9,正常流程提交代码。  
 
-#### 4.本项目使用了
+## 4.本项目使用了
 1,CNZZ的网站统计服务，官网：http://cnzz.com  
 2,来必力的网友评论服务，官网：https://www.livere.com  
 3,Google 的Adsense广告，官网：https://www.google.com/adsense/login/zh_CN  
 如需查看或管理网站统计、评论或广告，请自行注册帐号，然后修改_includes目录下相关文件。  
 
-#### 5.联系作者
+## 5.联系作者
 QQ：85902258  
 邮箱：email(winfirm#qq.com)  
 Github：https://github.com/panxw  
 
-#### 6.赞助
+## 6.赞助
 **^_^* 请作者喝杯农夫山泉！  
 支付宝:  
 <img width="200" height="200" src="https://www.panxw.com/images/donate_alipay.jpg"/>  
