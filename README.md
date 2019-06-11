@@ -6,9 +6,9 @@
 项目代码：[项目代码](https://github.com/panxw/panxw.github.com)  
 
 ## 1.环境准备
-由于项目使用了自定义插件(Gitpage不支持)，因此必须在本地运行插件以生成静态页面。  
-1.安装ruby运行环境。  
-2.安装bundler工具。(gem install bundler)。  
+由于用到自定义插件(Gitpage不支持)，本地必须有运行环境支持。  
+1.安装ruby运行环境(请自行搜索安装方法)。  
+2.安装bundler(gem install bundler)。  
 
 ## 2.使用本项目作为博客模板，操作步骤
 1,下载本项目代码，解压后放入博客项目根目录，然后cmd进入BLOGSYS目录，执行bundle install。  
