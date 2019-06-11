@@ -137,189 +137,198 @@
 <!-- Loop output paged posts -->
 
 <h2>
-  <a href="/web/neteasy-gentie-stop.html">
-    网易云跟贴8月1日将停止服务，换来必力!
+  <a href="/android/parcelable-usage.html">
+    Android 之Parcelable使用例子
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-07-06
+	2012-06-13
   </div>
 </h2>
 <hr>
-<p>晚上浏览博客时，发现网友新的留言，于是点开浏览器收藏下的网易云跟贴（https://gentie.163.com/）准备进后台看看，不料刚进云跟贴首页，就弹出一个大大的8.1日停服通告</p>
+<p>关于Android中的Parcelable：<br />
+1.Android推荐实现Parcelable接口而非Seriable接口来实现对象的序列化。<br />
+2.但当Parcelable中含有列表List时，则要求列表中的信息类是Seriable的。<br />
+3.Parcelable接口实现类除了必须实现writeToParcel(Parcel dest, int flags)方法外(describeContents()默认即可)，还需创建一个类型为Parcelable.Creator&lt; T &gt; 名为CREATOR的public静态变量(createFromParcel(Parcel source) 方法也是必须的)。</p>
 
+<p>Github：<a href="https://github.com/allthelucky/android-develop-kits/tree/master/ParcelableTest">https://github.com/allthelucky/android-develop-kits/tree/master/ParcelableTest</a></p>
 
-	<p><h3><a href="/web/neteasy-gentie-stop.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/parcelable-usage.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/git/git-submodule-usage.html">
-    git submodule(子模块)基本用法
+  <a href="/android/perst-try.html">
+    Perst在Android中的简单应用
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-06-16
+	2012-06-06
   </div>
 </h2>
 <hr>
-<p>git提供了submodules机制，可以为当前的git工程引入第三方的git库，而不需要直接将第三库copy过来。当第三方git库有更新时，也能很方便地进行同步。</p>
+<p>Perst的介绍文字颇多，但应用例子却不好找。关于Perst的介绍文字大家去Google或百度找吧。测试发现，在大数量（1w及以上）情况下，Perst性能的确远超Sqlite。</p>
 
 
-	<p><h3><a href="/git/git-submodule-usage.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/perst-try.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/linux/batch-rame-scripts.html">
-    批量文件加前缀的shell脚本
+  <a href="/program/java-wait-notify.html">
+    synchronized方法、wait/notify与监视器
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-06-13
+	2012-05-30
   </div>
 </h2>
 <hr>
-<p>批量文件加前缀的shell脚本(rname.sh)：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="nv">cmdfile</span><span class="o">=</span><span class="s2">"rname.sh"</span>
-<span class="nv">addr</span><span class="o">=</span><span class="s2">"bappstore_"</span>
+<p>名词解释：wait等待某个条件发生，而改变这个条件超出了当前方法的控制能力，常由另一个任务来改变。而notify和notifyAll则表示感兴趣的事件发生了，于是唤醒wait之后动作执行。</p>
 
-<span class="k">for </span>filename <span class="k">in</span> <span class="sb">`</span>ls<span class="sb">`</span>
-<span class="k">do
-	if</span> <span class="o">[</span> <span class="nv">$cmdfile</span> !<span class="o">=</span> <span class="nv">$filename</span> <span class="o">]</span> 
-	<span class="k">then 
-		</span><span class="nv">newfilename</span><span class="o">=</span><span class="nv">$addr$filename</span> <span class="c">#=不能有空格</span>
-		<span class="nb">echo</span> <span class="nv">$newfilename</span>
-		mv <span class="nv">$filename</span> <span class="nv">$newfilename</span>
-	<span class="k">fi
-done</span>
+
+	<p><h3><a href="/program/java-wait-notify.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/android/app-dev-sugestions.html">
+    给移动应用开发者的建议
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2012-05-22
+  </div>
+</h2>
+<hr>
+<p>摘自某ANDROID开发书籍，具体记不清楚了。个人比较认同：<br />
+1,随时记录自己手头的好点子。<br />
+2,并非一个功能完善的应用才能赚钱。<br />
+3,在发布各版本的ahap版本过程中完善功能。<br />
+4,有困难查资料。(Google)</p>
+
+	<p><h3><a href="/android/app-dev-sugestions.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/program/three-level-arch.html">
+    三层架构是个啥？
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2012-05-02
+  </div>
+</h2>
+<hr>
+<h4 id="1软件体系架构中一般分层结构">1.软件体系架构中，一般分层结构：</h4>
+<p>表示层，业务逻辑层，数据访问层。目的在于提高程序设计及维护效率。</p>
+
+<h4 id="2请求过程">2.请求过程：</h4>
+<p>表示层接收到用户的数据和请求后，传递给业务逻辑层。<br />
+业务逻辑层接收到用户数据和请求后，先对数据和请求验证和审核，验证过后再将数据和请求传递给数据访问层，验证失败则直接将结果返回表示层。<br />
+数据访问层接收到数据和请求后，开始读取或保存数据。</p>
+
+
+	<p><h3><a href="/program/three-level-arch.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/read/work-dna.html">
+    工作DNA警句
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2012-03-13
+  </div>
+</h2>
+<hr>
+<p>在一本名为《工作DNA》的书中写的几方面。我觉得蛮有道理，于是写摘下：<br />
+1,不能只有生存权，更要有发展权。<br />
+2,五大打挑战：父母，生育，升职，工作压力，生活质量。<br />
+3,工作不能只有专业化，还要有职业化。<br />
+4,财富要像滚雪球，人生也是。<br />
+5,职业线路：专注与坚持。<br />
+6,人生大智慧：聪明+善良。<br />
+7,人生不能只有吸引力，更要有影响力。</p>
+
+	<p><h3><a href="/read/work-dna.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/android/result-code.html">
+    Android startActivityForResult返回时需要注意的
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2012-03-03
+  </div>
+</h2>
+<hr>
+<p>在onActivityResult中，即便是从后一个页面按back键返回的也是有resultCode的，且其值为0,其data为null.</p>
+
+	<p><h3><a href="/android/result-code.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/android/custom-spinner.html">
+    Android Spinner自定义适配器
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2011-12-21
+  </div>
+</h2>
+<hr>
+<p>想让Android的Spinner+Adapter也能像ListView+Adapter那样自由适配任意(信息)列表数据，直接继承ArrayAdapter或BaseAdapter的方法来重写Adapter是不行的，必须实现Android提供的SpinnerAdapter接口来定制Spinner的Adapter才能达到所需效果。</p>
+
+<p>Github：<a href="https://github.com/allthelucky/android-develop-kits/tree/master/CustomSpinner">https://github.com/allthelucky/android-develop-kits/tree/master/CustomSpinner</a></p>
+
+	<p><h3><a href="/android/custom-spinner.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/android/android-jin-log.html">
+    android jni c/c++打印输出
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2011-12-02
+  </div>
+</h2>
+<hr>
+<h4 id="一加入头文件">一、加入头文件：</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#include &lt;android/log.h&gt;
 </code></pre>
 </div>
 
-<p>放入某个目录后，执行./rname.sh即可。</p>
-
-
-	<p><h3><a href="/linux/batch-rame-scripts.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/other/macmini-font-adjustfy.html">
-    Mac mini接显示器视觉模糊调节
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-03
-  </div>
-</h2>
-<hr>
-<p>使用Mac mini+AOC显示器组合有大半年了，一直感觉字体模糊感很强，视觉上很是不舒服。难道是显示器和主机不匹配？</p>
-
-<p>今天上网查找了下，发现不止我一个人有这种疑问，找到下面的方法，试完后视觉效果好多了。打开终端，输入：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
+<h4 id="二声明输出标记">二、声明输出标记</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#define LOG_TAG "TEST"
 </code></pre>
 </div>
-<p>重启后可以看到改变后的效果，1是字体大小，还可以设置为2，3，值越大字体的模糊感越强！</p>
 
-	<p><h3><a href="/other/macmini-font-adjustfy.html">阅读全文 &raquo;</a></h3></p>
+<h4 id="三输出打印信息方法">三、输出打印信息方法：</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>__android_log_print(ANDROID_LOG_INFO, LOG_TAG, "input:a=%d, b=%d", a,b);
+</code></pre>
+</div>
+
+
+	<p><h3><a href="/android/android-jin-log.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/vps/host-move-to-google-clould.html">
-    站点服务迁移到了Google Cloud
+  <a href="/android/dialog-style-activity.html">
+    Android Dialog风格Activity
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-05-07
+	2011-11-23
   </div>
 </h2>
 <hr>
-<p>前几天上网无意看到Google Cloud有开通账号赠送300美元(一年使用期限)的活动。这阵子SSH连接班瓦工机子很卡，令人心烦，打算抽空试试Google Cloud。今天周末宅在家正好有空，就将班瓦工上的服务做个整体迁移，包括一个ss VPN服务和目前这个网页访问服务。</p>
+<p>在Manifist文件中，对Activity添加一项theme的属性，值为@android:style/Theme.Dialog就能将Activity以对话框形式显示。例如：</p>
 
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;activity android:name=".DialogActivity" android:label="@string/new_name"android:theme="@android:style/Theme.Dialog"/&gt;
+</code></pre>
+</div>
 
-	<p><h3><a href="/vps/host-move-to-google-clould.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/web/about-blog-architure.html">
-    谈谈我的博客是如何构建与发布的
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-04-23
-  </div>
-</h2>
-<hr>
-<h2 id="1-概述">1. 概述</h2>
-<p>最近查看博客服务器的请求日志，发现其中有不少wp-admin.php的错误请求，像是在猜测博客的管理后台，大概认为我这个博客也是Wordpress搭建的吧。那今天就谈谈这个博客构建与发布用到的相关技术。</p>
-
-
-	<p><h3><a href="/web/about-blog-architure.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/vps/about-banwagon-traps.html">
-    关于再次购买班瓦工VPS的坑！
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-03-16
-  </div>
-</h2>
-<hr>
-<p>前些天，眼看手里的一台VPS(班瓦工)就要到期了，正好看到官网上有更新套餐促销，心想手里在用的这台VPS一年来还比较满意，没多想就入手了一台，价格和手里这台相同但可用内存大了一倍。</p>
-
-
-	<p><h3><a href="/vps/about-banwagon-traps.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/web/nodejs-server-transfer.html">
-    VPS服务器环境切换至Node.js
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2016-08-29
-  </div>
-</h2>
-<hr>
-<p>去年购买的VPS，原先是Ngnix(php,tomcat),mysql,sqlite组合，主要用来作静态博客服务，并顺便用作php, java服务学习时测试。</p>
-
-
-	<p><h3><a href="/web/nodejs-server-transfer.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/web/nginx-multi-domain.html">
-    基于Nginx的Linux VPS 多域名空间配置
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2016-07-26
-  </div>
-</h2>
-<hr>
-<h4 id="一从虚拟主机说起">一、从虚拟主机说起</h4>
-
-<p>以前，在我印象中VPS都是很贵的，总舍不得花那价钱入手。那时，建站基本都是用虚拟主机，这东西不仅便宜，而且使用很简单，基本不需要我们作何配置。主机商们大都很贼，他们一般都允许在一个虚拟机绑定多个域名，然而这些绑定的域名都是指向同一个空间。当访问这些域名时，大家看到的是同一个网站。那么要想让多个域名访问时，各自到达的网站完全不一样，就得再购买新的虚拟空间来绑定域名了。</p>
-
-
-	<p><h3><a href="/web/nginx-multi-domain.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/react/webpack-basic-usage.html">
-    webpack打包入门教程
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2016-06-29
-  </div>
-</h2>
-<hr>
-<p>最近学习React Native开发，了解了不少相关知识。顺便尝试了一下webpack，总结了几点其基本用法。</p>
-
-
-	<p><h3><a href="/react/webpack-basic-usage.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/dialog-style-activity.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 
@@ -329,14 +338,14 @@ done</span>
 <ul class="pagination">
   
   <li>
-    <span>&laquo; Prev</span>
+    <a href="/index_8">&laquo; Prev</a>
   </li>
   
 
   
     
-    <li class="active">
-      <span>1</span>
+    <li>
+      <a href="/index.html">1</a>
     </li>
     
   
@@ -383,8 +392,8 @@ done</span>
     
   
     
-    <li>
-      <a href="/index_9.html">9</a>
+    <li class="active">
+      <span>9</span>
     </li>
     
   
@@ -403,7 +412,7 @@ done</span>
 
   
    <li>
-    <a href="/index_2.html">Next &raquo;</a>
+    <a href="/index_10.html">Next &raquo;</a>
    </li>
   
 </ul>

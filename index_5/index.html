@@ -137,189 +137,231 @@
 <!-- Loop output paged posts -->
 
 <h2>
-  <a href="/web/neteasy-gentie-stop.html">
-    网易云跟贴8月1日将停止服务，换来必力!
+  <a href="/git/git-branch-steps.html">
+    git分支开发、合并、删除等主要命令
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-07-06
+	2014-09-14
   </div>
 </h2>
 <hr>
-<p>晚上浏览博客时，发现网友新的留言，于是点开浏览器收藏下的网易云跟贴（https://gentie.163.com/）准备进后台看看，不料刚进云跟贴首页，就弹出一个大大的8.1日停服通告</p>
-
-
-	<p><h3><a href="/web/neteasy-gentie-stop.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/git/git-submodule-usage.html">
-    git submodule(子模块)基本用法
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-16
-  </div>
-</h2>
-<hr>
-<p>git提供了submodules机制，可以为当前的git工程引入第三方的git库，而不需要直接将第三库copy过来。当第三方git库有更新时，也能很方便地进行同步。</p>
-
-
-	<p><h3><a href="/git/git-submodule-usage.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/linux/batch-rame-scripts.html">
-    批量文件加前缀的shell脚本
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-13
-  </div>
-</h2>
-<hr>
-<p>批量文件加前缀的shell脚本(rname.sh)：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="nv">cmdfile</span><span class="o">=</span><span class="s2">"rname.sh"</span>
-<span class="nv">addr</span><span class="o">=</span><span class="s2">"bappstore_"</span>
-
-<span class="k">for </span>filename <span class="k">in</span> <span class="sb">`</span>ls<span class="sb">`</span>
-<span class="k">do
-	if</span> <span class="o">[</span> <span class="nv">$cmdfile</span> !<span class="o">=</span> <span class="nv">$filename</span> <span class="o">]</span> 
-	<span class="k">then 
-		</span><span class="nv">newfilename</span><span class="o">=</span><span class="nv">$addr$filename</span> <span class="c">#=不能有空格</span>
-		<span class="nb">echo</span> <span class="nv">$newfilename</span>
-		mv <span class="nv">$filename</span> <span class="nv">$newfilename</span>
-	<span class="k">fi
-done</span>
+<h4 id="1克隆远程版本库">1、克隆远程版本库。</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone git@github.com:youth168/test.git
 </code></pre>
 </div>
 
-<p>放入某个目录后，执行./rname.sh即可。</p>
+<p>输入密码:git，等待完成。</p>
 
-
-	<p><h3><a href="/linux/batch-rame-scripts.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/other/macmini-font-adjustfy.html">
-    Mac mini接显示器视觉模糊调节
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-03
-  </div>
-</h2>
-<hr>
-<p>使用Mac mini+AOC显示器组合有大半年了，一直感觉字体模糊感很强，视觉上很是不舒服。难道是显示器和主机不匹配？</p>
-
-<p>今天上网查找了下，发现不止我一个人有这种疑问，找到下面的方法，试完后视觉效果好多了。打开终端，输入：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
+<div class="highlighter-rouge"><pre class="highlight"><code>cd ./test
 </code></pre>
 </div>
-<p>重启后可以看到改变后的效果，1是字体大小，还可以设置为2，3，值越大字体的模糊感越强！</p>
 
-	<p><h3><a href="/other/macmini-font-adjustfy.html">阅读全文 &raquo;</a></h3></p>
+
+	<p><h3><a href="/git/git-branch-steps.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/vps/host-move-to-google-clould.html">
-    站点服务迁移到了Google Cloud
+  <a href="/android/cocos2d-js-tutorial.html">
+    Cocos2d-JS steps under web and Android Platform.
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-05-07
+	2014-09-02
   </div>
 </h2>
 <hr>
-<p>前几天上网无意看到Google Cloud有开通账号赠送300美元(一年使用期限)的活动。这阵子SSH连接班瓦工机子很卡，令人心烦，打算抽空试试Google Cloud。今天周末宅在家正好有空，就将班瓦工上的服务做个整体迁移，包括一个ss VPN服务和目前这个网页访问服务。</p>
+<p>folder structure of sdk:<br />
+	http://www.cocos2d-x.org/wiki/Folder_Structure_of_Cocos2d-JS<br />
+why js?<br />
+	http://cocos2d-x.org/docs/manual/framework/html5/v2/cocosh5-advantages/en</p>
 
 
-	<p><h3><a href="/vps/host-move-to-google-clould.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/cocos2d-js-tutorial.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/about-blog-architure.html">
-    谈谈我的博客是如何构建与发布的
+  <a href="/android/android-json-trouble.html">
+    Android JSONObject解析异常问题
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-04-23
+	2014-08-29
   </div>
 </h2>
 <hr>
-<h2 id="1-概述">1. 概述</h2>
-<p>最近查看博客服务器的请求日志，发现其中有不少wp-admin.php的错误请求，像是在猜测博客的管理后台，大概认为我这个博客也是Wordpress搭建的吧。那今天就谈谈这个博客构建与发布用到的相关技术。</p>
+<p>Android的版本分化真麻烦，前些天从SD卡读JSONObject配置，发现一些手机正常，另一些异常（JSONObject转换问题）。<br />
+后来无奈改成String数组解决了兼容问题。</p>
 
-
-	<p><h3><a href="/web/about-blog-architure.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/android-json-trouble.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/vps/about-banwagon-traps.html">
-    关于再次购买班瓦工VPS的坑！
+  <a href="/vps/chrome-honx-vpn.html">
+    推荐几个不错的VPN
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-03-16
+	2014-07-26
   </div>
 </h2>
 <hr>
-<p>前些天，眼看手里的一台VPS(班瓦工)就要到期了，正好看到官网上有更新套餐促销，心想手里在用的这台VPS一年来还比较满意，没多想就入手了一台，价格和手里这台相同但可用内存大了一倍。</p>
+<p>Shadowsocks，请认准是shadowsocks.com的，配合Chrome+SwitchyOmega使用，速度超快，年付99元起，不限流量！<br />
+链接：<a href="https://portal.shadowsocks.com.hk/aff.php?aff=5921">https://portal.shadowsocks.com.hk/aff.php?aff=5921</a></p>
 
+<p>云梯，每月10元起，不限时，多服务器选择，速度快，强力推荐！<br />
+链接：<a href="http://protizi.com/?r=3d02a81974887d3a">http://protizi.com/?r=3d02a81974887d3a</a></p>
 
-	<p><h3><a href="/vps/about-banwagon-traps.html">阅读全文 &raquo;</a></h3></p>
+<p><del>如果仅需浏览器上外网，则推荐一个Chrome浏览器翻墙插件。</del> [这款失效了]<br />
+<del>链接：<a href="http://honx.in/i/U84FRn8mTgLfZ37v">http://honx.in/i/U84FRn8mTgLfZ37v</a></del></p>
+
+	<p><h3><a href="/vps/chrome-honx-vpn.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/nodejs-server-transfer.html">
-    VPS服务器环境切换至Node.js
+  <a href="/program/design-patterns.html">
+    面向对像设计模式相关
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-08-29
+	2014-07-11
   </div>
 </h2>
 <hr>
-<p>去年购买的VPS，原先是Ngnix(php,tomcat),mysql,sqlite组合，主要用来作静态博客服务，并顺便用作php, java服务学习时测试。</p>
+<h4 id="一设计原则">一、设计原则</h4>
+<p>1、找出应用中可能需要变化之处，把它们独立出来，不要和那些不需要变化的代码混在一起。（找出程序中会变化的方面，然后将其和固定不变的方面分离。）<br />
+即把会变化的部分取出并封装起来，以便以后可以轻易的改动或扩充此部分，而不影响不需要变化的其它部分。<br />
+2、针对接口编程，而不是针对实现编程。<br />
+即针对超类型编程，变量的声明类型应该是超类型，通常是一个抽象类或者是一个接口。意味着声明类时不用理会以后执行的真正对象类型。<br />
+3、多用组合，少用继承。<br />
+增强系统的弹性，不仅可将算法族封装成类，更可以”在运行时动态的改变行为“，只要组合的行为对象符合正确的接口标准即可。<br />
+4、类应该对扩展开放，对修改关闭。开闭原则。<br />
+5、要依赖抽象，不要依赖具体类。依赖倒置原则。<br />
+6、一个类应该只有一个引起变化的原则。（单一职责）<br />
+不让高层组件依赖低层组件，而且不管高层或低层组件，两者都应该依赖于抽象。</p>
 
 
-	<p><h3><a href="/web/nodejs-server-transfer.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/program/design-patterns.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/nginx-multi-domain.html">
-    基于Nginx的Linux VPS 多域名空间配置
+  <a href="/android/about-android-view.html">
+    Android View及ViewGroup知识
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-07-26
+	2014-06-22
   </div>
 </h2>
 <hr>
-<h4 id="一从虚拟主机说起">一、从虚拟主机说起</h4>
+<h4 id="一基本知识">一、基本知识</h4>
+<p>Adroid的UI界面都是由View和ViewGroup及其派生类组合而成的。其中，View是所有UI组件的基类，ViewGroup是容纳这些组件的容器。ViewGroup本身从View派生出来，作为各Layout的基类。<br />
+View代表了用户界面组件的一块可绘制的空间块。每一个View在屏幕上占据一个长方形区域。在这个区域内，这个View对象负责图形绘制和事件处理。<br />
+ViewGroup可以包含作为叶子节点的View，也可以包含作为更低层次的子ViewGroup，而子ViewGroup又可以包含下一层的叶子节点的View和ViewGroup。</p>
 
-<p>以前，在我印象中VPS都是很贵的，总舍不得花那价钱入手。那时，建站基本都是用虚拟主机，这东西不仅便宜，而且使用很简单，基本不需要我们作何配置。主机商们大都很贼，他们一般都允许在一个虚拟机绑定多个域名，然而这些绑定的域名都是指向同一个空间。当访问这些域名时，大家看到的是同一个网站。那么要想让多个域名访问时，各自到达的网站完全不一样，就得再购买新的虚拟空间来绑定域名了。</p>
 
-
-	<p><h3><a href="/web/nginx-multi-domain.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/about-android-view.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/react/webpack-basic-usage.html">
-    webpack打包入门教程
+  <a href="/android/android-volley-tool.html">
+    基于Volley的网络请求工具
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-06-29
+	2014-06-16
   </div>
 </h2>
 <hr>
-<p>最近学习React Native开发，了解了不少相关知识。顺便尝试了一下webpack，总结了几点其基本用法。</p>
+<h4 id="一volley基本处理流程">一、Volley基本处理流程</h4>
+<p>1、应用初始化Volley。<br />
+2、Volley创建一个RequestQueue、NetworkDispatcher组及Network。<br />
+3、RequestQueue即一个Request队列，RequestQueue会创建一个ExecutorDelivery。<br />
+4、NetworkDispatcher实质是Thread，从RequestQueue中取Request，通过Network加以执行。<br />
+5、Network负责网络请求处理，具体过程交给HttpStack处理。<br />
+6、HttpStack分HttpURLConnection(SDK_INT&gt;=9)与HttpClient与两种方式。<br />
+7、ExecutorDelivery负责处理请求结果，并与主线程进行交互。<br />
+8、Volley在上述2-7的基础上增加了Cache等附加处理环节。</p>
 
 
-	<p><h3><a href="/react/webpack-basic-usage.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/android-volley-tool.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/android/android-save-restore.html">
+    Android数据保存与恢复
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2014-06-13
+  </div>
+</h2>
+<hr>
+<p>在一个项目中，我使用onSaveInstanceState和onRestoreInstanceState中对数据做了保存与恢复，但应用被91助手等清理后重新进入，还是偶有Activity报空指针错误的情况。查看LOG发现onCreate使用数据代码行，在onRestoreInstanceState数据恢复之前就已执行了。后来换成在onCreate中进行数据恢复，就没再出现这种情况了。</p>
+
+
+	<p><h3><a href="/android/android-save-restore.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/program/double-lock-singleton.html">
+    双重检查加锁单例
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2014-04-16
+  </div>
+</h2>
+<hr>
+<p>双重检查加锁单例，解决多线程访问和效率问题。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>public class Singleton {
+	private volatile static Singleton instance=null;
+	private Singleton(){
+	}
+	
+	public static Singleton getInstance(){
+		if(null == instance) {
+			synchronized(Singleton.class) {
+				if(null==instance) {
+					instance = new Singleton();
+				}
+			}
+		}
+		return instance;
+	}
+}
+</code></pre>
+</div>
+
+<p>以上java 5及以上版本有效。</p>
+
+	<p><h3><a href="/program/double-lock-singleton.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/android/android-rom-about.html">
+    Android ROM包制作及刷机过程简介
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2014-03-29
+  </div>
+</h2>
+<hr>
+<h4 id="一android-rom种类">一、Android ROM种类</h4>
+<p>1.Bootloader ROM，连接PC刷机，面向技术人员。<br />
+2.Recovery ROM，Recovery模式刷机，面向普通用户。</p>
+
+<h4 id="二bootloader-rom的组成img为linux镜像文件">二、Bootloader ROM的组成（img为linux镜像文件）</h4>
+<p>1.系统镜像：system.img，相当于linux下的system下的所有文件及目录，确定内核空间大小。<br />
+2.用户镜像：userdata.img，包含用户的数据，确定用户空间大小。<br />
+3.Linux内核镜像：boot.img，Linux内核镜像。<br />
+4.Recovery镜像: recovery.img<br />
+5.Bootloader镜像:bootloader.img<br />
+前三个镜像是必须的，后面两个可选。可单独一个一个刷，也可整体刷写。</p>
+
+
+	<p><h3><a href="/android/android-rom-about.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 
@@ -329,14 +371,14 @@ done</span>
 <ul class="pagination">
   
   <li>
-    <span>&laquo; Prev</span>
+    <a href="/index_4">&laquo; Prev</a>
   </li>
   
 
   
     
-    <li class="active">
-      <span>1</span>
+    <li>
+      <a href="/index.html">1</a>
     </li>
     
   
@@ -359,8 +401,8 @@ done</span>
     
   
     
-    <li>
-      <a href="/index_5.html">5</a>
+    <li class="active">
+      <span>5</span>
     </li>
     
   
@@ -403,7 +445,7 @@ done</span>
 
   
    <li>
-    <a href="/index_2.html">Next &raquo;</a>
+    <a href="/index_6.html">Next &raquo;</a>
    </li>
   
 </ul>

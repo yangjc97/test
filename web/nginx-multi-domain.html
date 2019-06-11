@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="基于Nginx的Linux VPS 多域名空间配置 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="Nginx,VPS,多域名"/>
+    <title>基于Nginx的Linux VPS 多域名空间配置 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,198 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/web/index.html">Web建站</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>基于Nginx的Linux VPS 多域名空间配置</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/web/index.html">Web建站</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/Nginx.html">Nginx</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/VPS.html">VPS</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/多域名.html">多域名</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2016-07-26&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<h4 id="一从虚拟主机说起">一、从虚拟主机说起</h4>
+
+<p>以前，在我印象中VPS都是很贵的，总舍不得花那价钱入手。那时，建站基本都是用虚拟主机，这东西不仅便宜，而且使用很简单，基本不需要我们作何配置。主机商们大都很贼，他们一般都允许在一个虚拟机绑定多个域名，然而这些绑定的域名都是指向同一个空间。当访问这些域名时，大家看到的是同一个网站。那么要想让多个域名访问时，各自到达的网站完全不一样，就得再购买新的虚拟空间来绑定域名了。<!-- more --></p>
+
+<p>少数主机商虽然有多空间版本的虚拟主机出售，然而这类主机的价格要么很高，要不就是空间数目有限，顶多2-3个。后来，随着云计算技术的发展，建站托管的选择越来越丰富。如今，不仅有新生的AWS，阿里云，腾讯云，及各种paas服务可选，还可以选择VPS，及老牌ISP商的各类空间。当前VPS的价格，再也不是从前高不可及的了，甚至一些VPS商提供的套餐价格比虚拟主机还便宜。</p>
+
+<h4 id="二vps好处多">二、VPS好处多</h4>
+
+<p>使用VPS的主机的好处是，你可以随意折腾，从所装的系统，到系统上安装什么软件，全部由你决定。操作系统任你选，如windows/linux；网站环境随你搭配，如jsp/php/js, mysql/sqlite, nodejs/tomcat/nginx等；软件安装了可卸载/重装，甚至操作系统也能重装或更换，想怎么玩就怎么玩。最得要的是，我们可以利用Nginx实现多空间的服务器，绑定多个域名，各域名独立访问。</p>
+
+<p>反之，缺点也是明显的，安装系统，软件，及相关配置也得由你来定，开始接触时可能会带来不少困扰，折腾一阵子后基本能适应，不能适应的建议放弃VPS这条路吧。</p>
+
+<h4 id="三linux-nginx配置多空间服务器">三、Linux Nginx配置多空间服务器</h4>
+
+<p>我个人钟爱Debian，它够稳定，且适合折腾，因此我的VPS也就是安装的Debian的Linux OS。下面是安装nginx及配置：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get update
+apt-get install nginx
+</code></pre>
+</div>
+
+<p>/etc/nginx/nginx.conf文件下添加多个域名空间：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>server{
+    listen 80;
+    server_name www.abc.com;
+    root  /var/www/abc.com;
+    index index.html index.htm;
+    location \ {
+      
+    }
+}
+
+server{
+    listen 80;
+    server_name www.bcd.com;
+    root  /var/www/bcd.com;
+    index index.html index.htm;
+    location \ {
+
+    }
+}
+</code></pre>
+</div>
+
+<p>配置完成后重启Nginx服务</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/etc/init.d/nginx restart
+</code></pre>
+</div>
+
+<p>然后，只需将www.abc.com, www.bcd.com的解析指向VPS的IP，待解析生效后，我们就可以分别访问abc.com, bcd.com了。</p>
+
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/web/nginx-multi-domain.html" title="">基于Nginx的Linux VPS 多域名空间配置</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/web/site-enable-https.html">
+      本博客已开启安全(https)浏览
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/web/nodejs-server-transfer.html">
+      VPS服务器环境切换至Node.js
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

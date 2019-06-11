@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="React Native 开发环境搭建过程 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="React,Native,环境搭建"/>
+    <title>React Native 开发环境搭建过程 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,204 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/react/index.html">React Native</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>React Native 开发环境搭建过程</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/react/index.html">React Native</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/React.html">React</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/Native.html">Native</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/环境搭建.html">环境搭建</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2016-06-11&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<h4 id="一nodejs">一、Node.js</h4>
+
+<p>先安装Git命令行工具，Python2.7，及Node.js运行环境。</p>
+
+<p>建议更换npm包源，不然npm包加载会很慢！编辑C:\Users\panxw.npmrc，如没有该文件新建即可，加入一行：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>registry = https://registry.npm.taobao.org
+</code></pre>
+</div>
+<!-- more -->
+
+<h4 id="二react-native-cli">二、react-native-cli</h4>
+
+<p>安装好Node.js后，就可以使用它的包管理命令npm来安装React Native工具包了：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install -g react-native-cli
+npm install -g yarn
+</code></pre>
+</div>
+
+<p>除了安装了react-native命令行工具，还加装了yarn，可以加快npm install过程。</p>
+
+<h4 id="三工程初始化">三、工程初始化</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>react-native init ReactDemo
+</code></pre>
+</div>
+
+<p>创建了一个新的React Native工程，工程名为ReactDemo，完成后编译运行：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd ReactDemo
+react-native run-android 
+</code></pre>
+</div>
+
+<p>iOS下:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>react-native run-ios
+</code></pre>
+</div>
+
+<p>上述命令会最终启动已存在模拟器或真机运行。</p>
+
+<h4 id="四真机运行">四、真机运行</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>上述生成的包，在真机环境是不能直接运行成功的。先要确保真机与电脑需要处于同一局域网络，然后在App界面按Menu，进入Dev Settings-&gt;DEBUGING</td>
+      <td>Debug server host &amp; port for device，设置IP:port，ip为我们的电脑，port默认为8081。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>再次进入Menu，Reload JS如果能看到首页界面说明成功。</p>
+
+<h4 id="五其它">五、其它</h4>
+<p>如果对Native代码作过修改，那么需要重新运行react-native run-anrodi/run-ios重新生成并安装App。</p>
+
+<p>如果仅修改了js代码，只需启动本地服务(npm start)，然后重新Reload即可。</p>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/react/reac-native-envsetup.html" title="">React Native 开发环境搭建过程</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+			<a href="/react/index.html">
+				React Native
+			</a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/react/webpack-basic-usage.html">
+      webpack打包入门教程
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

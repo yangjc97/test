@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="利用CloudFront为Godaddy主机上的网站加速 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="CloudFront,Godaddy"/>
+    <title>利用CloudFront为Godaddy主机上的网站加速 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,150 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/web/index.html">Web建站</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>利用CloudFront为Godaddy主机上的网站加速</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/web/index.html">Web建站</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/CloudFront.html">CloudFront</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/Godaddy.html">Godaddy</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2016-03-07&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<p>最近将博客放Godaddy主机上来了，然而国内用户访问时却超级慢。慢到什么程度？打开一个简单的html静态页面可能要3-5s，甚至时常出现请求超时的现象。通过http://ping.chinaz.com测试发现，各地的ping值大多在400ms以上，并且每次都会出现一批超时节点，放眼望去基本全是红的！  <!-- more --></p>
+
+<p>面对Godaddy主机访问慢的问题，大家首先可能想到利用CDN来提速。然而提供CDN加速服务的国内服务商，都无一例外要求域名有备案，否则顶多也就让你使用海外加速节点，经实际体验实际效果并不理想。对于放在Godaddy主机上的站来说，没有备案这一说，Godaddy根本就不会有这种服务。后来想到了去年使用过一段时间的AWS，记得上面有内容分发的服务。于是找到了AWS的CloudFront，了解其使用方法与计价规则之后，趁去年申请的一年免费体验服务还没到期赶紧试一把。</p>
+
+<p>给网站添加CloudFront内容分发的配置过程并不复杂，但有个技巧，举例说明，比如我准备给我的个人博客作分发，公开访问地址是www.panxw.com，那么要这样操作：<br />
+1.Godaddy上添加blogserver.panxw.com的附加域，将博客部署在这个目录下。修改panxw.com域名解析，将blogserver的A记录指向Godaddy虚拟主机IP。<br />
+2.在AWS的CloudFront面板下新建分发（Create Distribution)，将Origin的值设置为blogserver.panxw.com，CNAMEs的值设置为博客的公开地址，即www.panxw.com。<br />
+3.Distribution新建完成后会生成一个诸如xxxxx.cloudfront.net的Domain Name。修改panxw.com域名解析，添加一条CNAME www，将其值设置为xxxxx.cloudfront.net。<br />
+这样一来当访问www.panxw.com时，实际是到xxxxx.cloudfront.net地址来取内容，而CloudFront则从blogserver.panxw.com处将最原始内容缓存到xxxxx.cloudfront.net处来。</p>
+
+<p>待Distribution状态变为Deployed后，就可以通过www.panxw.com来检验实际加速效果了。经实验发现，再次ping值大多在200ms以内，访问页面时加载速度明显提升。结论是：CloudFront的内容分发服务，有效地提升部署在Godaddy主机上网站的用户访问体验，值得一试！</p>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/web/fasten-godaddy-by-cloudfront.html" title="">利用CloudFront为Godaddy主机上的网站加速</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/web/jekyll-column-list-output.html">
+      Jekyll输出特定栏目文章列表的方法
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/web/my-jekyll-journey.html">
+      谈谈我的Jekyll建站之旅
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

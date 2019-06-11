@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="2.6内核驱动编译程序所遇问题解 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="linux,内核驱动"/>
+    <title>2.6内核驱动编译程序所遇问题解 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,197 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/linux/index.html">Linux相关</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>2.6内核驱动编译程序所遇问题解</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/linux/index.html">Linux相关</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/linux.html">linux</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/内核驱动.html">内核驱动</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2010-05-21&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<h4 id="一write-ioctl-警告从不兼容的指针类型初始化">一、write ioctl 警告:从不兼容的指针类型初始化</h4>
+<p>原因在于:write中的char *buf应该为const char *buf；ioctl中的long data为unsigned long data</p>
+
+<h4 id="二irqreturn函数中的参数变化">二、irqreturn函数中的参数变化</h4>
+<p>2.6中的irqreturn函数中只有两个参数了，原来的irqreturn_t int_interrupt(int irq,void * dev_id,struct pt_regs *regs)；应该是irqreturn_t int_interrupt(int irq,void * dev_id)；<!-- more --></p>
+
+<h4 id="三26内核高版本中的frags值发生变化">三、2.6内核高版本中的frags值发生变化</h4>
+<p>原来头文件里没有SA_INTERRUPT了，一般使用IRQF_SHARED了。<br />
+rquest_irq(PRINT_IRQ,int_interrupt,IRQF_SHARED,INT_DEV_NAME,NULL);</p>
+
+<h4 id="四中断所需的头文件不同">四、中断所需的头文件不同</h4>
+<p>2.4内核中中断的注册和注销使用的头文件#include &lt;linux/shed.h&gt;<br />
+2.6内核中中断的注册和注销使用的头文件#include &lt;linux/interrupt.h&gt;</p>
+
+<h4 id="五预留主设备号和次设备号">五、预留主设备号和次设备号</h4>
+<p>1.可用的主设备号范围如下：60~63 120~127 240~254<br />
+2.主设备号10的次设备号中240~255范围也用在测试或特定平台上。</p>
+
+<h4 id="六printk函数输出">六、printk函数输出</h4>
+<p>1输出可标记等级，默认为KERN_WARNNING，等同于下面几句：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>printk("&lt;4&gt;" "system ok\n");
+printk("&lt;4&gt; system ok\n");
+printk("system ok\n");
+</code></pre>
+</div>
+
+<p>2.必须使用“\n”字符，否则调试过程混乱。当不使用它时，下一条输出会紧接着前一句，而且会输出标记级别。<br />
+如printk(“hello world”);printk(“goodbye\n”);则输出时为hello world&lt;6&gt;goodbye.</p>
+
+<h4 id="七思考">七、思考？</h4>
+<p>1.为什么普通用户在执行./test的时候，总是提示设备文件打开出错，而用root用户执行./test的时候就成功了呢？<br />
+测试解决了，在root用户下将设备文件访问权限改为666，再就可以了。<br />
+2.一个设备文件，不能同时被两个设备同时使用。先打开的成功，后打开的出错。</p>
+
+<h4 id="八交叉编译">八、交叉编译</h4>
+<p>1解压好2.6.18内核，并修改内核目录inux-2.6.18下的Makefile，更改ARCH,和CROSS_COMPILE值。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ARCH := arm
+CROSS_COMPILE := /usr/local/arm/3.4.1/bin/arm-linux-
+</code></pre>
+</div>
+<p>如果没有设置好，在编译驱动的时候将会出错。并且先进行make modules之后再编译驱动.<br />
+2编译好驱动代码后写一个Makefie，注意加上COSS_ARCH变量，其中包含了两个选项，即ARCH,和CROSS_COMPILE</p>
+
+<h4 id="九驱动makefile">九、驱动Makefile</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>#Makefile for linux 2.6 kernel
+obj-m+=hello.o
+KDIR :=/home/ok/kernel/linux-2.6.18
+PWD:=$(shell pwd)
+#KERNELHEAD := /home/ok/kernel/linux-2.6.18/include，2.6核不用到。
+CROSS_ARCH := ARCH=arm CROSS_COMPILE=arm-linux-
+default:
+   $(MAKE) $(CROSS_ARCH) -C $(KDIR) SUBDIRS=$(PWD) modules
+clean:
+   rm -rf *.cmd *.o *.mod.c *.ko
+</code></pre>
+</div>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/linux/linux-kernel26-faqs.html" title="">2.6内核驱动编译程序所遇问题解</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/linux/boa-arm-porting.html">
+      嵌入式Web服务器boa在ARM平台的移植
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/linux/ucos-ii-setup.html">
+      Windows XP下uCOS-II开发环境建立
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

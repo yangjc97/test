@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="git submodule(子模块)基本用法 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="git,submodule,子模块"/>
+    <title>git submodule(子模块)基本用法 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,187 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/git/index.html">git用法</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>git submodule(子模块)基本用法</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/git/index.html">git用法</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/git.html">git</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/submodule.html">submodule</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/子模块.html">子模块</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2017-06-16&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<p>git提供了submodules机制，可以为当前的git工程引入第三方的git库，而不需要直接将第三库copy过来。当第三方git库有更新时，也能很方便地进行同步。<!-- more --></p>
+
+<p>下面介绍一下git submoudle命令的基本使用，示例：</p>
+
+<ol>
+  <li>初始化，为当前工程(project)指定一个第三子的git子模块(another)：</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd project 
+git submodule add git@xxxx:/another.git another
+</code></pre>
+</div>
+
+<p>这段代码会创建.gitmoudles文件记录git子模块信息。并且开始clone子模块的代码到another目录下。</p>
+
+<ol>
+  <li>修改project 目录下的.gitignore文件，使其忽略提交another目录下的文件 ：
+    <div class="highlighter-rouge"><pre class="highlight"><code>...
+another/
+</code></pre>
+    </div>
+    <p>然后将.gitmodules及.gitignore都提交。</p>
+  </li>
+  <li>根据.gitmoudles的记录的初始化</li>
+</ol>
+
+<p>当新clone project工程时，完成后是没有another目录的。这时只需在project目录运行：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git submodule init
+git submodule update
+</code></pre>
+</div>
+<p>就能将another的git库clone进another目录了。</p>
+
+<ol>
+  <li>更新git子模块
+当子模块有了更新后，我们也可以通过下面的命令更新git子模块。
+    <div class="highlighter-rouge"><pre class="highlight"><code>cd another
+git pull
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/git/git-submodule-usage.html" title="">git submodule(子模块)基本用法</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/git/git-server-on-aws.html">
+      一步一步在AWS EC2(Ubuntu)上搭建git服务
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+			<a href="/git/index.html">
+				git用法
+			</a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

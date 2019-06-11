@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="Cramfs文件系统的制作 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="Cramfs,linux"/>
+    <title>Cramfs文件系统的制作 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,183 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/linux/index.html">Linux相关</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>Cramfs文件系统的制作</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/linux/index.html">Linux相关</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/Cramfs.html">Cramfs</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/linux.html">linux</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2010-04-06&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<p>当我们用Busybox制作好文件系统后，就可以用Cramfs工具制作自己的文件Cramfs文件系统了。</p>
+<h4 id="一主要步骤">一、主要步骤</h4>
+<p>1.下载Cramfs，去这个地址：http://sourceforge.net/projects/cramfs/，或</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$wget http://downloads.sourceforge.net/project/cramfs/cramfs/1.1/cramfs-1.1.tar.gz
+</code></pre>
+</div>
+<!-- more -->
+
+<p>2.解压编译</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$tar zxvf cramfs-1.1.tar.gz
+$mv cramfs-1.1 cramfs
+$cd cramfs
+$make
+</code></pre>
+</div>
+<p>到此生成了mkcramfs和cramfsck，分别用于分创建Cramfs文件系统和进行Cramfs文件系统的解释及检查。</p>
+
+<p>3.制作Cramfs文件系统<br />
+把用Busybox制作好的文件系统目录（rootfs）复制到本目录，然后执行</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$./mkcramfs rootfs Cramfs.img
+</code></pre>
+</div>
+
+<p>文件系统镜像Cramfs.img就可以烧写到目标板了。<br />
+对于Jffs文件系统则类似的用mkfs.jffs2工具制作，Yaffs文件系统则需从网站：http://www.aleph1.co.uk/cgi-bin/viewcvs.cgi/下载，并配置内核，在fs中入对yaffs2编译选项，添加分区等。</p>
+
+<h4 id="二内核选项">二、内核选项</h4>
+<p>1.内核配置的时候要加入对Cramfs的支持。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Memory Technology Device (MTD) support[Y/m/n/?] Y 内存技术设备支持  
+MTD partitioning support [Y/m/n/?] Y 支持MTD分区  
+Direct char device access to MTD devices [Y/m/n/?] Y MTD字符设备直接访问  
+Caching block device access to MTD device [Y/m/n/?] Y MTD块设备缓冲访问  
+</code></pre>
+</div>
+
+<p>2.File System中配置</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Compressed ROM file support [Y/m/n/?] Y ROM文件系统支持。  
+</code></pre>
+</div>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/linux/cramfs-build-step.html" title="">Cramfs文件系统的制作</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/linux/px270-arm-porting.html">
+      Widows下PXA270开发板的Linux系统的移植过程
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/linux/boa-arm-porting.html">
+      嵌入式Web服务器boa在ARM平台的移植
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

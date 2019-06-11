@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="嵌入式Web服务器boa在ARM平台的移植 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="嵌入式,移植"/>
+    <title>嵌入式Web服务器boa在ARM平台的移植 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,200 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/linux/index.html">Linux相关</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>嵌入式Web服务器boa在ARM平台的移植</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/linux/index.html">Linux相关</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/嵌入式.html">嵌入式</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/移植.html">移植</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2010-04-09&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<h4 id="1下载">1，下载</h4>
+<p>http://www.boa.org/</p>
+
+<h4 id="2解压">2，解压</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>tar xzf boa-0.94.13.tar.gz
+</code></pre>
+</div>
+<!-- more -->
+
+<h4 id="3编译">3，编译</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>cd boa-0.94.13/src
+./configure
+</code></pre>
+</div>
+<p>生成了makefile文件，一定要在src目录下，在boa-0.94.12下执行./src/configure后再make可能出错。 
+修改makefile文件，把其中的CC=gcc CPP=gcc -E 改为：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>CC = arm-linux-gcc  CPP = arm-linux-gcc -E
+</code></pre>
+</div>
+
+<h4 id="4然后make在这一步用341和332交叉编译器时均出现如下错误">4，然后make（在这一步用3.4.1和3.3.2交叉编译器时均出现如下错误：</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>util.c: 100: 1: pasting “t” and “-&gt;” does not give a valid preprocessing token make: [util.o] Error1
+</code></pre>
+</div>
+
+<p>换成2.95.3交叉编译器后，编译通过。<br />
+另一种解决办法是把compat.h中的 foo##-&gt;tm_gmtoff的##去掉。</p>
+
+<h4 id="5arm-linux-strip-boa-删除调试信息">5，arm-linux-strip boa 删除调试信息</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>cp boa /nfs
+cp ../boa.conf /nfs
+cd ../../html/ &amp;&amp; cp index.htm test.cgi /nfs
+</code></pre>
+</div>
+<p>在/nfs下修改boa.conf</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mount -t nfs 192.168.0.60:/nfs /mnt
+</code></pre>
+</div>
+
+<h4 id="6目标板下">6.目标板下</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir /etc/boa &amp;&amp; cp /mnt/boa.conf /etc/boa/
+cp /mnt/boa /bin/
+mkdir /var/log/boa（你也可以在/etc/rc.local中加入一行mkdir /var/log/boa，这样在系统启动时自动创建，而不用人工创建，如果想要让boa在系统启动时也自动运行，那就在/etc/rc.local中再加一行/bin/boa吧）
+mkdir -p /var/www/cgi-bin &amp;&amp; cd /var/www
+cp /nfs/index.html ./
+cp /nfs/test.cgi ./
+</code></pre>
+</div>
+
+<h4 id="7运行boa测试">7.运行boa，测试</h4>
+<p>网页文件要显示中文需加上:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+</code></pre>
+</div>
+<p>注意用utf-8国际通行的。</p>
+
+<p>Debian下编译出错解决办法：<br />
+http://www.linux521.com/2009/system/200906/5726.html</p>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/linux/boa-arm-porting.html" title="">嵌入式Web服务器boa在ARM平台的移植</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/linux/cramfs-build-step.html">
+      Cramfs文件系统的制作
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/linux/linux-kernel26-faqs.html">
+      2.6内核驱动编译程序所遇问题解
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

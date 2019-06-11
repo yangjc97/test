@@ -4,8 +4,8 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="探索尝试，发现未知可能！记录我学习使用Android/iOS开发、React Native、VPS、Linux、Web建站、Jekyll等技术过程中遇到的问题/解决办法，及一些个人心得总结。 - Savant's Blog" />
-    <title>Android/iOS/React Native/Web相关 - Savant's Blog</title>
+    <meta name="description" content=" - Savant's Blog" />
+    <title>标签：ProgressDialog - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -126,289 +126,31 @@
           <!-- Navi -->
           <div class="post_frame">
             <div class="post_navi">
-              <a href="/">首页</a>&nbsp;>&nbsp;
+              <a href="/">首页</a>&nbsp;>&nbsp;<a href="/tag/ProgressDialog.html">ProgressDialog</a>&nbsp;>&nbsp;
               <span class="post_navi_span">列表</span>
             </div>
             <div style="padding:10px">
-              
+				
+					<h2>
+					  <a href="/android/progress-dialog.html">
+						让Android ProgressDialog在按返回键可dismiss
+					  </a> 
+					  <div class="post-date">
+						<span class="glyphicon glyphicon-time"></span>
+						2013-03-09
+					  </div>
+					</h2>
+					<hr>
+					<p>让ProgressDialog可按返回键时dismiss，但空白区不dismiss：</p>
 
-<!-- ad -->
-
-<!-- Loop output paged posts -->
-
-<h2>
-  <a href="/web/neteasy-gentie-stop.html">
-    网易云跟贴8月1日将停止服务，换来必力!
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-07-06
-  </div>
-</h2>
-<hr>
-<p>晚上浏览博客时，发现网友新的留言，于是点开浏览器收藏下的网易云跟贴（https://gentie.163.com/）准备进后台看看，不料刚进云跟贴首页，就弹出一个大大的8.1日停服通告</p>
-
-
-	<p><h3><a href="/web/neteasy-gentie-stop.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/git/git-submodule-usage.html">
-    git submodule(子模块)基本用法
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-16
-  </div>
-</h2>
-<hr>
-<p>git提供了submodules机制，可以为当前的git工程引入第三方的git库，而不需要直接将第三库copy过来。当第三方git库有更新时，也能很方便地进行同步。</p>
-
-
-	<p><h3><a href="/git/git-submodule-usage.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/linux/batch-rame-scripts.html">
-    批量文件加前缀的shell脚本
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-13
-  </div>
-</h2>
-<hr>
-<p>批量文件加前缀的shell脚本(rname.sh)：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="nv">cmdfile</span><span class="o">=</span><span class="s2">"rname.sh"</span>
-<span class="nv">addr</span><span class="o">=</span><span class="s2">"bappstore_"</span>
-
-<span class="k">for </span>filename <span class="k">in</span> <span class="sb">`</span>ls<span class="sb">`</span>
-<span class="k">do
-	if</span> <span class="o">[</span> <span class="nv">$cmdfile</span> !<span class="o">=</span> <span class="nv">$filename</span> <span class="o">]</span> 
-	<span class="k">then 
-		</span><span class="nv">newfilename</span><span class="o">=</span><span class="nv">$addr$filename</span> <span class="c">#=不能有空格</span>
-		<span class="nb">echo</span> <span class="nv">$newfilename</span>
-		mv <span class="nv">$filename</span> <span class="nv">$newfilename</span>
-	<span class="k">fi
-done</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>progressDialog.setCanelable(true);
+progressDialog.setCanceledOnTouchOutside(false)
 </code></pre>
 </div>
 
-<p>放入某个目录后，执行./rname.sh即可。</p>
-
-
-	<p><h3><a href="/linux/batch-rame-scripts.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/other/macmini-font-adjustfy.html">
-    Mac mini接显示器视觉模糊调节
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-03
-  </div>
-</h2>
-<hr>
-<p>使用Mac mini+AOC显示器组合有大半年了，一直感觉字体模糊感很强，视觉上很是不舒服。难道是显示器和主机不匹配？</p>
-
-<p>今天上网查找了下，发现不止我一个人有这种疑问，找到下面的方法，试完后视觉效果好多了。打开终端，输入：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
-</code></pre>
-</div>
-<p>重启后可以看到改变后的效果，1是字体大小，还可以设置为2，3，值越大字体的模糊感越强！</p>
-
-	<p><h3><a href="/other/macmini-font-adjustfy.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/vps/host-move-to-google-clould.html">
-    站点服务迁移到了Google Cloud
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-05-07
-  </div>
-</h2>
-<hr>
-<p>前几天上网无意看到Google Cloud有开通账号赠送300美元(一年使用期限)的活动。这阵子SSH连接班瓦工机子很卡，令人心烦，打算抽空试试Google Cloud。今天周末宅在家正好有空，就将班瓦工上的服务做个整体迁移，包括一个ss VPN服务和目前这个网页访问服务。</p>
-
-
-	<p><h3><a href="/vps/host-move-to-google-clould.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/web/about-blog-architure.html">
-    谈谈我的博客是如何构建与发布的
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-04-23
-  </div>
-</h2>
-<hr>
-<h2 id="1-概述">1. 概述</h2>
-<p>最近查看博客服务器的请求日志，发现其中有不少wp-admin.php的错误请求，像是在猜测博客的管理后台，大概认为我这个博客也是Wordpress搭建的吧。那今天就谈谈这个博客构建与发布用到的相关技术。</p>
-
-
-	<p><h3><a href="/web/about-blog-architure.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/vps/about-banwagon-traps.html">
-    关于再次购买班瓦工VPS的坑！
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-03-16
-  </div>
-</h2>
-<hr>
-<p>前些天，眼看手里的一台VPS(班瓦工)就要到期了，正好看到官网上有更新套餐促销，心想手里在用的这台VPS一年来还比较满意，没多想就入手了一台，价格和手里这台相同但可用内存大了一倍。</p>
-
-
-	<p><h3><a href="/vps/about-banwagon-traps.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/web/nodejs-server-transfer.html">
-    VPS服务器环境切换至Node.js
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2016-08-29
-  </div>
-</h2>
-<hr>
-<p>去年购买的VPS，原先是Ngnix(php,tomcat),mysql,sqlite组合，主要用来作静态博客服务，并顺便用作php, java服务学习时测试。</p>
-
-
-	<p><h3><a href="/web/nodejs-server-transfer.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/web/nginx-multi-domain.html">
-    基于Nginx的Linux VPS 多域名空间配置
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2016-07-26
-  </div>
-</h2>
-<hr>
-<h4 id="一从虚拟主机说起">一、从虚拟主机说起</h4>
-
-<p>以前，在我印象中VPS都是很贵的，总舍不得花那价钱入手。那时，建站基本都是用虚拟主机，这东西不仅便宜，而且使用很简单，基本不需要我们作何配置。主机商们大都很贼，他们一般都允许在一个虚拟机绑定多个域名，然而这些绑定的域名都是指向同一个空间。当访问这些域名时，大家看到的是同一个网站。那么要想让多个域名访问时，各自到达的网站完全不一样，就得再购买新的虚拟空间来绑定域名了。</p>
-
-
-	<p><h3><a href="/web/nginx-multi-domain.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/react/webpack-basic-usage.html">
-    webpack打包入门教程
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2016-06-29
-  </div>
-</h2>
-<hr>
-<p>最近学习React Native开发，了解了不少相关知识。顺便尝试了一下webpack，总结了几点其基本用法。</p>
-
-
-	<p><h3><a href="/react/webpack-basic-usage.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-
-<!-- Pager indicator -->
-<div style="margin:0px auto;text-align: center">
-
-<ul class="pagination">
-  
-  <li>
-    <span>&laquo; Prev</span>
-  </li>
-  
-
-  
-    
-    <li class="active">
-      <span>1</span>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_2.html">2</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_3.html">3</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_4.html">4</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_5.html">5</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_6.html">6</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_7.html">7</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_8.html">8</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_9.html">9</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_10.html">10</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_11.html">11</a>
-    </li>
-    
-  
-
-  
-   <li>
-    <a href="/index_2.html">Next &raquo;</a>
-   </li>
-  
-</ul>
-
-</div>
+						<p><h3><a href="/android/progress-dialog.html">阅读全文 &raquo;</a></h3></p>
+					<hr>
+				
             </div>
           </div>
         </div>
@@ -465,8 +207,8 @@ done</span>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script> 
           </div>
-          
-          <!-- Blog Recent Well -->
+
+		      <!-- Blog Recent Well -->
           <div class="well">
             <h4>
               最新文章
@@ -552,16 +294,16 @@ done</span>
               </div> 
             </div>
           </div>		  
-
-		     <!-- Blog Links Well -->
+          
+		      <!-- Blog Links Well -->
           <div class="well">
             <h4>
               友情链接
-			  <div class="linkme">
-				<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=w7SqraWqsa6DsrLtoKyu" target="_blank">
-					<span class="linkme_span">交换链接</span>
-				</a>
-			  </div>
+            <div class="linkme">
+            <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=w7SqraWqsa6DsrLtoKyu" target="_blank">
+              <span class="linkme_span">交换链接</span>
+            </a>
+            </div>
             </h4>
                         <ul class="list-unstyled">
               <li>

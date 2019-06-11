@@ -1,11 +1,16 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="探索尝试，发现未知可能！记录我学习使用Android/iOS开发、React Native、VPS、Linux、Web建站、Jekyll等技术过程中遇到的问题/解决办法，及一些个人心得总结。 - Savant's Blog" />
-    <title>Android/iOS/React Native/Web相关 - Savant's Blog</title>
+    <meta name="description" content=" - Savant's Blog" />
+
+    <title>栏目：Web建站 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -127,14 +132,12 @@
           <div class="post_frame">
             <div class="post_navi">
               <a href="/">首页</a>&nbsp;>&nbsp;
+              <a href="">Web建站</a>&nbsp;>&nbsp;
               <span class="post_navi_span">列表</span>
             </div>
             <div style="padding:10px">
-              
-
-<!-- ad -->
-
 <!-- Loop output paged posts -->
+
 
 <h2>
   <a href="/web/neteasy-gentie-stop.html">
@@ -153,93 +156,6 @@
 <hr>
 
 <h2>
-  <a href="/git/git-submodule-usage.html">
-    git submodule(子模块)基本用法
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-16
-  </div>
-</h2>
-<hr>
-<p>git提供了submodules机制，可以为当前的git工程引入第三方的git库，而不需要直接将第三库copy过来。当第三方git库有更新时，也能很方便地进行同步。</p>
-
-
-	<p><h3><a href="/git/git-submodule-usage.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/linux/batch-rame-scripts.html">
-    批量文件加前缀的shell脚本
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-13
-  </div>
-</h2>
-<hr>
-<p>批量文件加前缀的shell脚本(rname.sh)：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="nv">cmdfile</span><span class="o">=</span><span class="s2">"rname.sh"</span>
-<span class="nv">addr</span><span class="o">=</span><span class="s2">"bappstore_"</span>
-
-<span class="k">for </span>filename <span class="k">in</span> <span class="sb">`</span>ls<span class="sb">`</span>
-<span class="k">do
-	if</span> <span class="o">[</span> <span class="nv">$cmdfile</span> !<span class="o">=</span> <span class="nv">$filename</span> <span class="o">]</span> 
-	<span class="k">then 
-		</span><span class="nv">newfilename</span><span class="o">=</span><span class="nv">$addr$filename</span> <span class="c">#=不能有空格</span>
-		<span class="nb">echo</span> <span class="nv">$newfilename</span>
-		mv <span class="nv">$filename</span> <span class="nv">$newfilename</span>
-	<span class="k">fi
-done</span>
-</code></pre>
-</div>
-
-<p>放入某个目录后，执行./rname.sh即可。</p>
-
-
-	<p><h3><a href="/linux/batch-rame-scripts.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/other/macmini-font-adjustfy.html">
-    Mac mini接显示器视觉模糊调节
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-03
-  </div>
-</h2>
-<hr>
-<p>使用Mac mini+AOC显示器组合有大半年了，一直感觉字体模糊感很强，视觉上很是不舒服。难道是显示器和主机不匹配？</p>
-
-<p>今天上网查找了下，发现不止我一个人有这种疑问，找到下面的方法，试完后视觉效果好多了。打开终端，输入：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
-</code></pre>
-</div>
-<p>重启后可以看到改变后的效果，1是字体大小，还可以设置为2，3，值越大字体的模糊感越强！</p>
-
-	<p><h3><a href="/other/macmini-font-adjustfy.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/vps/host-move-to-google-clould.html">
-    站点服务迁移到了Google Cloud
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-05-07
-  </div>
-</h2>
-<hr>
-<p>前几天上网无意看到Google Cloud有开通账号赠送300美元(一年使用期限)的活动。这阵子SSH连接班瓦工机子很卡，令人心烦，打算抽空试试Google Cloud。今天周末宅在家正好有空，就将班瓦工上的服务做个整体迁移，包括一个ss VPN服务和目前这个网页访问服务。</p>
-
-
-	<p><h3><a href="/vps/host-move-to-google-clould.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
   <a href="/web/about-blog-architure.html">
     谈谈我的博客是如何构建与发布的
   </a> 
@@ -254,22 +170,6 @@ done</span>
 
 
 	<p><h3><a href="/web/about-blog-architure.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/vps/about-banwagon-traps.html">
-    关于再次购买班瓦工VPS的坑！
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-03-16
-  </div>
-</h2>
-<hr>
-<p>前些天，眼看手里的一台VPS(班瓦工)就要到期了，正好看到官网上有更新套餐促销，心想手里在用的这台VPS一年来还比较满意，没多想就入手了一台，价格和手里这台相同但可用内存大了一倍。</p>
-
-
-	<p><h3><a href="/vps/about-banwagon-traps.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
@@ -307,19 +207,119 @@ done</span>
 <hr>
 
 <h2>
-  <a href="/react/webpack-basic-usage.html">
-    webpack打包入门教程
+  <a href="/web/site-enable-https.html">
+    本博客已开启安全(https)浏览
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-06-29
+	2016-05-29
   </div>
 </h2>
 <hr>
-<p>最近学习React Native开发，了解了不少相关知识。顺便尝试了一下webpack，总结了几点其基本用法。</p>
+<p>前几天看到一位博友推荐<a href="https://buy.wosign.com/free/?lan=cn">沃通数据免费SSL证书</a>，有2年免费试用期限。于是申请了一份，给放在<a href="https://bwh1.net/aff.php?aff=16961">班瓦工</a>VPS上的博客添上。</p>
 
 
-	<p><h3><a href="/react/webpack-basic-usage.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/web/site-enable-https.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/web/php-get-access-db.html">
+    php加入access数据库支持方法
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2016-04-17
+  </div>
+</h2>
+<hr>
+<p>要在linux的php环境中要访问access数据库，实属无赖。度娘一下找到了办法：</p>
+
+<p>1.安装php的odbc支持</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install php5-odbc
+</code></pre>
+</div>
+
+
+	<p><h3><a href="/web/php-get-access-db.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/web/block-ip-by-htaccess.html">
+    阿里弹性Web托管屏蔽IP的.htaccess设置
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2016-04-11
+  </div>
+</h2>
+<hr>
+<p>几个站都被几个来自南京的IP恶意访问了。其中一个为阿里弹性Web托管，提工单问技术支持找到了方法。.htaccess加入设置：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>RewriteEngine On
+##Block ip
+RewriteCond %{http:X-Forwarded-For} (180.97.106.161|180.97.106.162|180.97.106.36|180.97.106.37) [NC]
+RewriteRule (.*) – [F]  
+</code></pre>
+</div>
+
+
+	<p><h3><a href="/web/block-ip-by-htaccess.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/web/my-jekyll-journey.html">
+    谈谈我的Jekyll建站之旅
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2016-03-16
+  </div>
+</h2>
+<hr>
+<p>大概2012年起，第一次接触jekyll。照着网友们的攻略开始了jekyll的博客之旅。</p>
+
+<p>为了使jekyll跑在自己的windows机子上，差点把人搞吐血了，一度快到放弃的那一刻。</p>
+
+
+	<p><h3><a href="/web/my-jekyll-journey.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/web/fasten-godaddy-by-cloudfront.html">
+    利用CloudFront为Godaddy主机上的网站加速
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2016-03-07
+  </div>
+</h2>
+<hr>
+<p>最近将博客放Godaddy主机上来了，然而国内用户访问时却超级慢。慢到什么程度？打开一个简单的html静态页面可能要3-5s，甚至时常出现请求超时的现象。通过http://ping.chinaz.com测试发现，各地的ping值大多在400ms以上，并且每次都会出现一批超时节点，放眼望去基本全是红的！</p>
+
+
+	<p><h3><a href="/web/fasten-godaddy-by-cloudfront.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/web/jekyll-column-list-output.html">
+    Jekyll输出特定栏目文章列表的方法
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2016-03-06
+  </div>
+</h2>
+<hr>
+<p>我们可以通过以下几步来输出某个栏目下的文章列表。</p>
+
+<h4 id="1新建一个分类文件xxxmd">1.新建一个分类文件xxx.md</h4>
+<p>xxx.md用于显示”XXX“栏目下的文章列表，其内容如下：<br />
+<img src="/assets/column_list_code.png" alt="" /><br />
+因jekyll模板代码不能显示在代码块中，因此用图来显示，代码可从<a href="https://github.com/panxw/jekyll-theme-codes">https://github.com/panxw/jekyll-theme-codes</a>找到！</p>
+
+
+	<p><h3><a href="/web/jekyll-column-list-output.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 
@@ -342,68 +342,20 @@ done</span>
   
     
     <li>
-      <a href="/index_2.html">2</a>
+      <a href="/web/index_2.html">2</a>
     </li>
     
   
     
     <li>
-      <a href="/index_3.html">3</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_4.html">4</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_5.html">5</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_6.html">6</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_7.html">7</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_8.html">8</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_9.html">9</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_10.html">10</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_11.html">11</a>
+      <a href="/web/index_3.html">3</a>
     </li>
     
   
 
   
    <li>
-    <a href="/index_2.html">Next &raquo;</a>
+    <a href="/web/index_2.html">Next &raquo;</a>
    </li>
   
 </ul>
@@ -465,8 +417,8 @@ done</span>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script> 
           </div>
-          
-          <!-- Blog Recent Well -->
+
+		     <!-- Blog Recent Well -->
           <div class="well">
             <h4>
               最新文章
@@ -553,40 +505,6 @@ done</span>
             </div>
           </div>		  
 
-		     <!-- Blog Links Well -->
-          <div class="well">
-            <h4>
-              友情链接
-			  <div class="linkme">
-				<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=w7SqraWqsa6DsrLtoKyu" target="_blank">
-					<span class="linkme_span">交换链接</span>
-				</a>
-			  </div>
-            </h4>
-                        <ul class="list-unstyled">
-              <li>
-                <a href="https://github.com" rel="nofollow">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="http://www.manongjc.com" target="_blank" rel="nofollow">
-                  码农教程
-                </a>
-              </li>	
-              <li>
-                <a href="http://www.youth168.com" target="_blank" rel="nofollow">
-                  青年励志网
-                </a>
-              </li>
-              <li>
-                <a href="http://xujinkai.info/" target="_blank" rel="nofollow"> 
-                  JK的博客
-                </a>
-              </li>				  
-            </ul>
- 
-          </div>
         </div>
       </div>
       <!-- /.row -->

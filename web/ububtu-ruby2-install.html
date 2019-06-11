@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="Ubuntu下Ruby1.9/2.0版本切换 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="ubuntu,ruby2"/>
+    <title>Ubuntu下Ruby1.9/2.0版本切换 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,198 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/web/index.html">Web建站</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>Ubuntu下Ruby1.9/2.0版本切换</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/web/index.html">Web建站</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/ubuntu.html">ubuntu</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/ruby2.html">ruby2</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2016-03-03&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<p>Ubuntu 14.4以上，即便是通过:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install ruby2.0 ruby2.0-dev
+</code></pre>
+</div>
+
+<p>指定为2.0版，也会同时安装1.9版本，且系统默认使用1.9版。</p>
+
+<p>目前，安装Jekyll会提示使用Ruby&gt;=2.0，那么要使用ruby2.0怎么办？有办法，切换一下版本。<!-- more -->建立一个shell脚本，switchruby2.0.sh，内容如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /usr/bin 
+ln -sf ruby2.0 ruby 
+ln -sf gem2.0 gem 
+ln -sf erb2.0 erb 
+ln -sf irb2.0 irb 
+ln -sf rake2.0 rake 
+ln -sf rdoc2.0 rdoc 
+ln -sf testrb2.0 testr 
+</code></pre>
+</div>
+
+<p>然后添加用户执行权限：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chmod u+x  switchruby2.0.sh
+</code></pre>
+</div>
+
+<p>然后：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ./ switchruby2.0.sh
+</code></pre>
+</div>
+
+<p>接着再更新下gem:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gem update --system
+gem pristime --all
+</code></pre>
+</div>
+
+<p>完成后通过 ruby -v确认下当前使用的ruby版本。<br />
+等切换到2.0后，再执行sudo apt-get install jekyll，就会成功了。</p>
+
+<p>那么，用着有需要切换回1.9怎么办？同理建立一个shell脚本switchruby1.9.sh，内容见下面：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /usr/bin/
+ln -sf ruby1.9.1 ruby
+ln -sf gem1.9.1 gem
+ln -sf erb1.9.1 erb
+ln -sf irb1.9.1 irb
+ln -sf rake1.9.1 rake
+ln -sf rdoc1.9.1 rdoc
+ln -sf testrb1.9.1 testrb
+</code></pre>
+</div>
+
+<p>保存，其余操作同切换到2.0.</p>
+
+<p>参考：http://www.kaijia.me/2014/08/ubuntu-14-04-switch-defaults-to-ruby-2-0/</p>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/web/ububtu-ruby2-install.html" title="">Ubuntu下Ruby1.9/2.0版本切换</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/web/godaddy-try-summary.html">
+      试用Godaddy虚拟主机总结
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/web/jekyll-column-list-output.html">
+      Jekyll输出特定栏目文章列表的方法
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

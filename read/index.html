@@ -1,11 +1,16 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="探索尝试，发现未知可能！记录我学习使用Android/iOS开发、React Native、VPS、Linux、Web建站、Jekyll等技术过程中遇到的问题/解决办法，及一些个人心得总结。 - Savant's Blog" />
-    <title>Android/iOS/React Native/Web相关 - Savant's Blog</title>
+    <meta name="description" content=" - Savant's Blog" />
+
+    <title>栏目：书摘 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -127,286 +132,236 @@
           <div class="post_frame">
             <div class="post_navi">
               <a href="/">首页</a>&nbsp;>&nbsp;
+              <a href="">书摘</a>&nbsp;>&nbsp;
               <span class="post_navi_span">列表</span>
             </div>
             <div style="padding:10px">
-              
-
-<!-- ad -->
-
 <!-- Loop output paged posts -->
 
+
 <h2>
-  <a href="/web/neteasy-gentie-stop.html">
-    网易云跟贴8月1日将停止服务，换来必力!
+  <a href="/read/read-design-principle-book.html">
+    写给大家看的设计书[书摘]
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-07-06
+	2015-03-02
   </div>
 </h2>
 <hr>
-<p>晚上浏览博客时，发现网友新的留言，于是点开浏览器收藏下的网易云跟贴（https://gentie.163.com/）准备进后台看看，不料刚进云跟贴首页，就弹出一个大大的8.1日停服通告</p>
+<p>写给大家看的设计书，作者：Robin Williams[美]。<br />
+附PDF下载：<a href="http://pan.baidu.com/s/1mgDWCuG">http://pan.baidu.com/s/1mgDWCuG</a></p>
 
 
-	<p><h3><a href="/web/neteasy-gentie-stop.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/read-design-principle-book.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/git/git-submodule-usage.html">
-    git submodule(子模块)基本用法
+  <a href="/read/six-relationship-model.html">
+    人际交往的六种模式
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-06-16
+	2013-05-16
   </div>
 </h2>
 <hr>
-<p>git提供了submodules机制，可以为当前的git工程引入第三方的git库，而不需要直接将第三库copy过来。当第三方git库有更新时，也能很方便地进行同步。</p>
+<p>人际交往的六种模式，摘自高效能人士的7个习惯。分别是：<br />
+双赢：利人利己；<br />
+输/输：两败俱伤；<br />
+赢/输：损人利己；<br />
+赢：独善其身；<br />
+输/赢：舍己为人；<br />
+无交易：好聚好散。</p>
 
+<p>双赢不是什么技巧，而是人际交往的哲学。<br />
+哪一种最好？答案是视情况而定。</p>
 
-	<p><h3><a href="/git/git-submodule-usage.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/six-relationship-model.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/linux/batch-rame-scripts.html">
-    批量文件加前缀的shell脚本
+  <a href="/read/self-improve-methods.html">
+    提升自我的方法
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-06-13
+	2013-04-07
   </div>
 </h2>
 <hr>
-<p>批量文件加前缀的shell脚本(rname.sh)：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="nv">cmdfile</span><span class="o">=</span><span class="s2">"rname.sh"</span>
-<span class="nv">addr</span><span class="o">=</span><span class="s2">"bappstore_"</span>
+<p>如下方面：<br />
+1、每天学习。<br />
+2、学习新语言。<br />
+3、打造你的灵感空间。<br />
+4、战胜你的恐惧。<br />
+5、升级你的技能。<br />
+6、给未来的自己写一封信。<br />
+7、承认自己的缺点。<br />
+8、立即行动。<br />
+9、向佩服的人学习。<br />
+10、减少在QQ上的时间。<br />
+11、培养一个新习惯。<br />
+12、让过去的过去。<br />
+13、帮助他人。<br />
+14、好好休息。<br />
+15、多多反省。<br />
+…</p>
 
-<span class="k">for </span>filename <span class="k">in</span> <span class="sb">`</span>ls<span class="sb">`</span>
-<span class="k">do
-	if</span> <span class="o">[</span> <span class="nv">$cmdfile</span> !<span class="o">=</span> <span class="nv">$filename</span> <span class="o">]</span> 
-	<span class="k">then 
-		</span><span class="nv">newfilename</span><span class="o">=</span><span class="nv">$addr$filename</span> <span class="c">#=不能有空格</span>
-		<span class="nb">echo</span> <span class="nv">$newfilename</span>
-		mv <span class="nv">$filename</span> <span class="nv">$newfilename</span>
-	<span class="k">fi
-done</span>
-</code></pre>
-</div>
-
-<p>放入某个目录后，执行./rname.sh即可。</p>
-
-
-	<p><h3><a href="/linux/batch-rame-scripts.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/self-improve-methods.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/other/macmini-font-adjustfy.html">
-    Mac mini接显示器视觉模糊调节
+  <a href="/read/about-shadow-time.html">
+    读《暗时间》一书
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-06-03
+	2013-03-22
   </div>
 </h2>
 <hr>
-<p>使用Mac mini+AOC显示器组合有大半年了，一直感觉字体模糊感很强，视觉上很是不舒服。难道是显示器和主机不匹配？</p>
+<h4 id="1前不久读了暗时间一书书中列举了暗时间的8个方面">1.前不久读了《暗时间》一书，书中列举了暗时间的8个方面：</h4>
+<p>1,使用滞慢或陈旧的技术；<br />
+2,分心和发呆；<br />
+3,倦怠的疲惫；<br />
+4,看电邮，手机QQ，MSN成瘾；<br />
+5,交通（堵车）；<br />
+6,伪困难的决定；<br />
+7,在线阅读；<br />
+8,过度聊天。</p>
 
-<p>今天上网查找了下，发现不止我一个人有这种疑问，找到下面的方法，试完后视觉效果好多了。打开终端，输入：</p>
+<h4 id="2问题来了">2.问题来了</h4>
+<p>现代人或多或少都受到过上述问题的困扰，致使有时感觉啥也没做，一段时间就很快过去了。那么怎么把暗时间利用起来呢？</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
-</code></pre>
-</div>
-<p>重启后可以看到改变后的效果，1是字体大小，还可以设置为2，3，值越大字体的模糊感越强！</p>
 
-	<p><h3><a href="/other/macmini-font-adjustfy.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/about-shadow-time.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/vps/host-move-to-google-clould.html">
-    站点服务迁移到了Google Cloud
+  <a href="/read/an-egg-story.html">
+    一个鸡蛋的故事
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-05-07
+	2013-02-06
   </div>
 </h2>
 <hr>
-<p>前几天上网无意看到Google Cloud有开通账号赠送300美元(一年使用期限)的活动。这阵子SSH连接班瓦工机子很卡，令人心烦，打算抽空试试Google Cloud。今天周末宅在家正好有空，就将班瓦工上的服务做个整体迁移，包括一个ss VPN服务和目前这个网页访问服务。</p>
+<p>摘自某文摘一段话：<br />
+鸡蛋从外打破是食物，从内打破是生命。人生亦是，从外打破是压力，从内打破是成长。<br />
+如果你等待别人从外打破，那么你注定成为别人的食物，如果能让自己从内打破，那么你会发现自己的成长相当于一种重生。</p>
 
+<p>读完这段话，有何感想？</p>
 
-	<p><h3><a href="/vps/host-move-to-google-clould.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/an-egg-story.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/about-blog-architure.html">
-    谈谈我的博客是如何构建与发布的
+  <a href="/read/work-dna.html">
+    工作DNA警句
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-04-23
+	2012-03-13
   </div>
 </h2>
 <hr>
-<h2 id="1-概述">1. 概述</h2>
-<p>最近查看博客服务器的请求日志，发现其中有不少wp-admin.php的错误请求，像是在猜测博客的管理后台，大概认为我这个博客也是Wordpress搭建的吧。那今天就谈谈这个博客构建与发布用到的相关技术。</p>
+<p>在一本名为《工作DNA》的书中写的几方面。我觉得蛮有道理，于是写摘下：<br />
+1,不能只有生存权，更要有发展权。<br />
+2,五大打挑战：父母，生育，升职，工作压力，生活质量。<br />
+3,工作不能只有专业化，还要有职业化。<br />
+4,财富要像滚雪球，人生也是。<br />
+5,职业线路：专注与坚持。<br />
+6,人生大智慧：聪明+善良。<br />
+7,人生不能只有吸引力，更要有影响力。</p>
 
-
-	<p><h3><a href="/web/about-blog-architure.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/work-dna.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/vps/about-banwagon-traps.html">
-    关于再次购买班瓦工VPS的坑！
+  <a href="/read/body-foster-song.html">
+    养气歌
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-03-16
+	2011-08-02
   </div>
 </h2>
 <hr>
-<p>前些天，眼看手里的一台VPS(班瓦工)就要到期了，正好看到官网上有更新套餐促销，心想手里在用的这台VPS一年来还比较满意，没多想就入手了一台，价格和手里这台相同但可用内存大了一倍。</p>
+<h4 id="养气歌">养气歌</h4>
+<p>少思虑以养心气，寡色欲以养肾气。<br />
+常运动以养骨气，戒嗔怒以养肝气。<br />
+薄滋味以养胃气，省语言以养神气。<br />
+多读书以养胆气，顺时令以养元气。</p>
 
-
-	<p><h3><a href="/vps/about-banwagon-traps.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/body-foster-song.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/nodejs-server-transfer.html">
-    VPS服务器环境切换至Node.js
+  <a href="/read/it-engineer-way.html">
+    IT Enginner or Code Typist
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-08-29
+	2011-03-02
   </div>
 </h2>
 <hr>
-<p>去年购买的VPS，原先是Ngnix(php,tomcat),mysql,sqlite组合，主要用来作静态博客服务，并顺便用作php, java服务学习时测试。</p>
+<p>曾看过这么一句话：“做一个工程师(Enginner or Programdesigner)，而不仅是一个程序工人(Code Typist)”。</p>
 
+<p>面向对象OO之路：<br />
+1,精通一元语言，如UML。<br />
+2,学习，然后使用设计模式。</p>
 
-	<p><h3><a href="/web/nodejs-server-transfer.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/it-engineer-way.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/nginx-multi-domain.html">
-    基于Nginx的Linux VPS 多域名空间配置
+  <a href="/read/learn-process.html">
+    学习方法及过程
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-07-26
+	2011-01-09
   </div>
 </h2>
 <hr>
-<h4 id="一从虚拟主机说起">一、从虚拟主机说起</h4>
+<p>书摘，学习方法及过程：<br />
+1,循序渐进，打好基础，由易到难，量力而行。<br />
+2,熟读精思，心到、眼到、口到。<br />
+3,自求自得，主动消化吸收。<br />
+4,博约结合，广博与精研结合，广泛阅读，精读。<br />
+5,知行统一，从实践中学，学以致用。</p>
 
-<p>以前，在我印象中VPS都是很贵的，总舍不得花那价钱入手。那时，建站基本都是用虚拟主机，这东西不仅便宜，而且使用很简单，基本不需要我们作何配置。主机商们大都很贼，他们一般都允许在一个虚拟机绑定多个域名，然而这些绑定的域名都是指向同一个空间。当访问这些域名时，大家看到的是同一个网站。那么要想让多个域名访问时，各自到达的网站完全不一样，就得再购买新的虚拟空间来绑定域名了。</p>
-
-
-	<p><h3><a href="/web/nginx-multi-domain.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/learn-process.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/react/webpack-basic-usage.html">
-    webpack打包入门教程
+  <a href="/read/which-more-important.html">
+    人生什么更重要？
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-06-29
+	2010-01-02
   </div>
 </h2>
 <hr>
-<p>最近学习React Native开发，了解了不少相关知识。顺便尝试了一下webpack，总结了几点其基本用法。</p>
+<h4 id="哪个更重要">哪个更重要？</h4>
+<p>方向比努力重要，<br />
+身体比金钱重要，<br />
+生活比文凭重要，<br />
+情商比智商重要，<br />
+能力比知识重要，<br />
+行动比（愿望）空想重要。</p>
 
 
-	<p><h3><a href="/react/webpack-basic-usage.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/which-more-important.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 
 <!-- Pager indicator -->
 <div style="margin:0px auto;text-align: center">
-
-<ul class="pagination">
-  
-  <li>
-    <span>&laquo; Prev</span>
-  </li>
-  
-
-  
-    
-    <li class="active">
-      <span>1</span>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_2.html">2</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_3.html">3</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_4.html">4</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_5.html">5</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_6.html">6</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_7.html">7</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_8.html">8</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_9.html">9</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_10.html">10</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/index_11.html">11</a>
-    </li>
-    
-  
-
-  
-   <li>
-    <a href="/index_2.html">Next &raquo;</a>
-   </li>
-  
-</ul>
 
 </div>
             </div>
@@ -465,8 +420,8 @@ done</span>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script> 
           </div>
-          
-          <!-- Blog Recent Well -->
+
+		     <!-- Blog Recent Well -->
           <div class="well">
             <h4>
               最新文章
@@ -553,40 +508,6 @@ done</span>
             </div>
           </div>		  
 
-		     <!-- Blog Links Well -->
-          <div class="well">
-            <h4>
-              友情链接
-			  <div class="linkme">
-				<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=w7SqraWqsa6DsrLtoKyu" target="_blank">
-					<span class="linkme_span">交换链接</span>
-				</a>
-			  </div>
-            </h4>
-                        <ul class="list-unstyled">
-              <li>
-                <a href="https://github.com" rel="nofollow">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="http://www.manongjc.com" target="_blank" rel="nofollow">
-                  码农教程
-                </a>
-              </li>	
-              <li>
-                <a href="http://www.youth168.com" target="_blank" rel="nofollow">
-                  青年励志网
-                </a>
-              </li>
-              <li>
-                <a href="http://xujinkai.info/" target="_blank" rel="nofollow"> 
-                  JK的博客
-                </a>
-              </li>				  
-            </ul>
- 
-          </div>
         </div>
       </div>
       <!-- /.row -->

@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="谈谈我的博客是如何构建与发布的 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="bitbucket,webhook,git,Jekyll"/>
+    <title>谈谈我的博客是如何构建与发布的 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,187 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/web/index.html">Web建站</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>谈谈我的博客是如何构建与发布的</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/web/index.html">Web建站</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/bitbucket.html">bitbucket</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/webhook.html">webhook</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/git.html">git</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/Jekyll.html">Jekyll</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2017-04-23&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<h2 id="1-概述">1. 概述</h2>
+<p>最近查看博客服务器的请求日志，发现其中有不少wp-admin.php的错误请求，像是在猜测博客的管理后台，大概认为我这个博客也是Wordpress搭建的吧。那今天就谈谈这个博客构建与发布用到的相关技术。<!-- more --></p>
+
+<h2 id="2-内容托管">2. 内容托管</h2>
+<p>博客起初托管在GitPages，后来发现GitHub上免费帐户无法隐藏文章信息，于是转而放在了Bitbucket上。<br />
+在此要特别为Bitbucket点赞，它家的免费个人帐户可建无限量的私有git仓库，并且单个仓库可支持最多5个成员。</p>
+
+<h2 id="3-构建与发布">3. 构建与发布</h2>
+<h4 id="31-主要用到的技术">3.1 主要用到的技术</h4>
+<ol>
+  <li>git，代码同步工具。</li>
+  <li>Jekyll，站点构建工具。</li>
+  <li>Webhook，自动部署。</li>
+  <li>Node.js，Webhook服务。</li>
+  <li>ssh，加密传输。</li>
+</ol>
+
+<h4 id="32-流程">3.2 流程</h4>
+<ol>
+  <li>本地文章更新。</li>
+  <li>push更新到远程仓库。</li>
+  <li>远程仓库收到push后，触发一个请求到Webhook上服务。</li>
+  <li>Webhook服务验证参数合法性后，pull最新代码到本地仓库。</li>
+  <li>调用shell脚本，利用Jekyll生成静态站，然后将新站点更新到发布目录。</li>
+  <li>刷新博客查看更新内容。</li>
+</ol>
+
+<h4 id="33安全传输">3.3安全传输</h4>
+<ol>
+  <li>git使用SSH+RSA加密传输。</li>
+  <li>Webhook使用https+请求参数验证。</li>
+</ol>
+
+<h2 id="4-总结">4. 总结</h2>
+<p>博客站是纯静态无任何管理后台的，后期我会关闭php等动态网页服务。<br />
+所以请相关人士不要再猜测后台登录入口了，谢谢啦！</p>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/web/about-blog-architure.html" title="">谈谈我的博客是如何构建与发布的</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/web/nodejs-server-transfer.html">
+      VPS服务器环境切换至Node.js
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/web/neteasy-gentie-stop.html">
+      网易云跟贴8月1日将停止服务，换来必力!
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="C语言Base64输出buffer大小计算 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="C语言,Base64,buffer"/>
+    <title>C语言Base64输出buffer大小计算 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,204 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/program/index.html">软件开发</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>C语言Base64输出buffer大小计算</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/program/index.html">软件开发</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/C语言.html">C语言</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/Base64.html">Base64</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/buffer.html">buffer</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2015-07-01&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<h4 id="一base64编码过程">一、Base64编码过程</h4>
+<p>将3字节(3×8=24)分块成4字节(4×6=24,高位补0)，即3个字节输入转换成4个字节输出。因此，输入字符串长度如果不是3的整数倍，则需要在末尾补1或2个=。<!-- more --></p>
+
+<h4 id="二c语言实现计算输出bufferchar-大小计算方法">二、C语言实现计算输出buffer(char *)大小计算方法</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>/**
+ * 取补的'='长度
+ */
+unsigned int get_base64_output_padd_len(const unsigned char * input) {
+	const unsigned char *ptr = input;
+	ptr = ptr + strlen(input);
+	unsigned int pad_len = 0;
+	unsigned int i = 0;
+	while (i &lt; 3) { //补'='的长度只可能是1或2
+		if (*ptr == 61) {
+			pad_len++;
+		}
+		ptr--;
+		i++;
+	}
+	return pad_len;
+}
+
+/**
+ * 获取base64输出buffer所需的长度
+ */
+unsigned int get_base64_output_len(const unsigned char * input,
+		unsigned int type) {
+	unsigned int count = 0;
+	if (type == 0) { //根据原始输入字符串计算编码后字符串的长度
+		unsigned int len = strlen(input);
+		unsigned int pad = (len % 3 == 0) ? 0 : (3 - len % 3);
+		count = ((len + pad) * 8 / 6);
+	} else { //根据编码后的字符串计算编码前字符串的长度（补位后的）
+		const unsigned char *ptr = input;
+		unsigned char tmp;
+		unsigned int total = 0;
+		while ((tmp = *ptr) != '\0') { //过滤'\n'
+			if (tmp != '\n') {
+				total++;
+			}
+			ptr++;
+		}
+		unsigned int pad_len = get_base64_output_padd_len(input);
+		count = (total * 6 / 8) - pad_len;
+	}
+	return count;
+}
+</code></pre>
+</div>
+
+<h4 id="三编码中有n字符的情况">三、编码中有\n字符的情况</h4>
+<p>JAVA base64的某些实现版本，编码后的字符串中可能带有”\n”字符（方便输出时查看），getOutputLen就不再准确了，需要过滤掉”\n”字符。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	System.out.println("getOutputLen:"+getOutputLen(input));//根据原始输入字符串计算编码后字符串的长度为1144
+	String result = Base64.encodeToString(input.getBytes("UTF-8"), 0);//对字符串按Base64编码
+	System.out.println("result Len:"+result.length());//实际的result长度发现为1160
+	result=result.replaceAll("\n", "");//因为它附加了\n字符，需要滤\n字符
+	System.out.println("real result Len:"+result.length());//输出1144，这就对了！
+</code></pre>
+</div>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/program/base64-outbuffer-length.html" title="">C语言Base64输出buffer大小计算</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/program/java-thread-model.html">
+      Java线程模型的规则与共享变量可见性
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+			<a href="/program/index.html">
+				软件开发
+			</a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

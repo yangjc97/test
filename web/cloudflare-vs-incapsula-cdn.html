@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="页面不存在：Page Not Found - Savant's Blog - 作者:panxw"/> 
-	
-    <title>页面不存在：Page Not Found - Savant's Blog</title>
+    <meta name="description" content="CloudFlare与Incapsula免费版CDN实测对比 - Savant's Blog - 作者:panxw"/> 
+	<meta name="keywords" content="CloudFlare,Incapsula,CDN"/>
+    <title>CloudFlare与Incapsula免费版CDN实测对比 - Savant's Blog</title>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
@@ -125,13 +125,165 @@
       <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          <p align="center">
-<h1></h1>Page Not Found!</h1>
-Please wait...
+          
+
+
+
+<div  class="post_frame">
+<!-- Navi -->
+<div class="post_navi">
+	<a href="/">首页</a>&nbsp;>&nbsp;
+	<a href="/web/index.html">Web建站</a>&nbsp;>&nbsp;
+	<span class="post_navi_span">正文</span>
+</div>
+
+<!-- Title -->
+<div class="post_titlearea">
+	<h1>CloudFlare与Incapsula免费版CDN实测对比</h1>
+	<hr class="hrline"/>
+	<div class="post_titledate"/>
+		www.panxw.com&nbsp;&nbsp;&nbsp;
+		栏目：<a href="/web/index.html">Web建站</a>&nbsp;&nbsp;&nbsp;
+		
+			标签：
+					
+					<a href="/tag/CloudFlare.html">CloudFlare</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/Incapsula.html">Incapsula</a>
+					,
+					
+					
+				 
+					
+					<a href="/tag/CDN.html">CDN</a>
+					
+					
+				 
+		&nbsp;&nbsp;&nbsp;
+		日期：2016-02-29&nbsp;&nbsp;&nbsp;
+		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
+	</div>
+</div>
+
+<!-- adsense_468x60 -->
+<div style="text-align:center;margin-top:15px">
+	 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BlogContent -->
+<ins class="adsbygoogle"
+	 style="display:inline-block;width:468px;height:60px"
+	 data-ad-client="ca-pub-3557776493079475"
+	 data-ad-slot="6276217604"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+</div>
 <br/>
-<br/>
-thanks!
-</p>
+
+<!-- content -->
+<div style="text-indent:2em;padding:10px">
+<p>最近要给龟速的Godaddy网站主机加个访问加速器，对站友们讨论较多的几家CND提供商的免费版进行了测试，主要有百度云加速（国内），CloudFlare及Incapsula。本文只对CloudFlare与Incapsula两家免费版本实际效果进行测试。之所以忽略掉百度云加速，是因为作为一个放在Godaddy主机上的网站，域名没有备案一说，而百度去加速对没备案网站也是使用CloudFlare公司的节点加速的。<br />
+<!-- more --></p>
+
+<h4 id="1测试方法">1.测试方法：</h4>
+<p>用两个域名，分别在CloudFlare与Incapsula配置免费版的CDN加速套餐，然后待节点生效后，通过 Ping测试工（http://ping.chinaz.com）对两个域名进行测试，测试线路包括电信，多线，联通，移动，海外。每组进行多轮测试，各选取某轮的测试数据进行对比。</p>
+
+<h4 id="2测试结果">2.测试结果：</h4>
+<p>使用CloudFlare加速的实测数据：<br />
+<img src="/assets/test_result_cloudflare.png" alt="" /></p>
+
+<p>使用Incapsula加速的实测数据：<br />
+<img src="/assets/test_reuslt_incapsula.png" alt="" /></p>
+
+<p>通过上面的数据各项指标可以看到，CloudFlare的数据优于Incapsula。另外通过测试两家的加载速度，其结果也是CloudFlare优于Incapsula。</p>
+
+<h4 id="3总结">3.总结</h4>
+<p>这里没有列出各测试的具体数据，我这里观察的总结是，两家的大部分测试结果都在200-300ms内，而CloudFlare的Ping值落在200ms以内的多于Incapsula，300ms以内的也多于Incapsula。总体而言，CloudFlare的加速效果略胜于Incapsula。</p>
+
+<p>如果域名有备案，推荐直接使用云加速，可获得较快的国内速度与海外的速度。<br />
+如果没备案，实际发现百度云加速没有直接使用Cloud好。</p>
+
+</div>
+
+<div style="text-align:center">
+	<div>
+		<b>本文为原创文章，转载请注明出处：</b><a href="http://localhost:4000">Savant's Blog</a> » <a href="http://localhost:4000/web/cloudflare-vs-incapsula-cdn.html" title="">CloudFlare与Incapsula免费版CDN实测对比</a>
+	</div>
+	<!-- <div class="friend_alert">
+		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
+	</div>
+	<div id="donate_div" class="donate_block">
+		<div class="donate_block_left">
+			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">支付宝</div>
+		</div>
+		<div class="donate_block_right">
+			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
+			<div class="donate_block_title">微信</div>
+		</div>
+	</div>
+	<div class="donate_button">
+		<a onclick="donate()">打赏</a>
+</div> -->
+</div>
+<hr/>
+
+<!-- next and previous -->
+<div style="margin:10px">
+  <span class="next">
+		
+    上篇：
+    <a href="/web/ubuntu-nginx-java-php-serve.html">
+      Ubuntu下tomcat+nginx服务器架设小记
+    </a>
+		 
+  </span>
+  
+  <div style="float:right">
+  <span class="prev" >
+		
+    下篇：
+    <a href="/web/godaddy-try-summary.html">
+      试用Godaddy虚拟主机总结
+    </a>
+		
+  </span>
+  </div>
+  
+</div>
+
+<hr>
+<!-- Blog Comments -->
+<div class="media">
+  
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDY0NC8yMTE3Mw==">
+		<script type="text/javascript">
+   (function(d, s) {
+	          var j, e = d.getElementsByTagName(s)[0];
+
+		         if (typeof LivereTower === 'function') { return; }
+
+			        j = d.createElement(s);
+				       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				              j.async = true;
+
+					             e.parentNode.insertBefore(j, e);
+						        })(document, 'script');
+	</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+ 
+</div>
+
+</div>
+
+<!-- donate -->
+<script type="text/javascript" src="/js/donate.js"></script>
 
         </div>
         <!-- Blog Sidebar Widgets Column -->

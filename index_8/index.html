@@ -137,189 +137,323 @@
 <!-- Loop output paged posts -->
 
 <h2>
-  <a href="/web/neteasy-gentie-stop.html">
-    网易云跟贴8月1日将停止服务，换来必力!
+  <a href="/android/update-tips.html">
+    让Android网络应用启动时升级检查
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-07-06
+	2013-03-02
   </div>
 </h2>
 <hr>
-<p>晚上浏览博客时，发现网友新的留言，于是点开浏览器收藏下的网易云跟贴（https://gentie.163.com/）准备进后台看看，不料刚进云跟贴首页，就弹出一个大大的8.1日停服通告</p>
+<p>Android网络应用开发中有遇到，业务接口后期调用时数据要加密传输，由于先前没在启动时升级检查，导致原来版本无法升级（只在登录后可升级），好在处于内部测试阶段。让Android网络应用启动时升级检查就可以避免上述情况发生，要点：<br />
+1、让Android应用升级接口独立于其它业务接口；<br />
+2、在应用启动时进行升级检查，让用户随时可升级到最新版本。</p>
 
-
-	<p><h3><a href="/web/neteasy-gentie-stop.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/update-tips.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/git/git-submodule-usage.html">
-    git submodule(子模块)基本用法
+  <a href="/android/animation-noline.html">
+    消除Animation残余线条
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-06-16
+	2013-02-27
   </div>
 </h2>
 <hr>
-<p>git提供了submodules机制，可以为当前的git工程引入第三方的git库，而不需要直接将第三库copy过来。当第三方git库有更新时，也能很方便地进行同步。</p>
+<p>消除Animation残余线条办法：</p>
+<h4 id="1继承translateanimation或rotateanimation在applytransformation中刷新动画parentview的界面如">1,继承TranslateAnimation或RotateAnimation，在applyTransformation中刷新动画parentView的界面。如：</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>private final class MyTranslateAnimation extends TranslateAnimation {
+		private View backgroundView;
 
+		public MyTranslateAnimation(View backgroundView, int fromXType, float fromXValue, int toXType, float toXValue,
+				int fromYType, float fromYValue, int toYType, float toYValue) {
+			super(fromXType, fromXValue, toXType, toXValue, fromYType, fromYValue, toYType, toYValue);
+			this.backgroundView = backgroundView;
+		}
 
-	<p><h3><a href="/git/git-submodule-usage.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/linux/batch-rame-scripts.html">
-    批量文件加前缀的shell脚本
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-13
-  </div>
-</h2>
-<hr>
-<p>批量文件加前缀的shell脚本(rname.sh)：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="nv">cmdfile</span><span class="o">=</span><span class="s2">"rname.sh"</span>
-<span class="nv">addr</span><span class="o">=</span><span class="s2">"bappstore_"</span>
-
-<span class="k">for </span>filename <span class="k">in</span> <span class="sb">`</span>ls<span class="sb">`</span>
-<span class="k">do
-	if</span> <span class="o">[</span> <span class="nv">$cmdfile</span> !<span class="o">=</span> <span class="nv">$filename</span> <span class="o">]</span> 
-	<span class="k">then 
-		</span><span class="nv">newfilename</span><span class="o">=</span><span class="nv">$addr$filename</span> <span class="c">#=不能有空格</span>
-		<span class="nb">echo</span> <span class="nv">$newfilename</span>
-		mv <span class="nv">$filename</span> <span class="nv">$newfilename</span>
-	<span class="k">fi
-done</span>
+		@Override
+		protected void applyTransformation(float interpolatedTime, Transformation t) {
+			super.applyTransformation(interpolatedTime, t);
+			backgroundView.postInvalidate();
+		}
+}
 </code></pre>
 </div>
 
-<p>放入某个目录后，执行./rname.sh即可。</p>
-
-
-	<p><h3><a href="/linux/batch-rame-scripts.html">阅读全文 &raquo;</a></h3></p>
-<hr>
-
-<h2>
-  <a href="/other/macmini-font-adjustfy.html">
-    Mac mini接显示器视觉模糊调节
-  </a> 
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	2017-06-03
-  </div>
-</h2>
-<hr>
-<p>使用Mac mini+AOC显示器组合有大半年了，一直感觉字体模糊感很强，视觉上很是不舒服。难道是显示器和主机不匹配？</p>
-
-<p>今天上网查找了下，发现不止我一个人有这种疑问，找到下面的方法，试完后视觉效果好多了。打开终端，输入：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
+<h4 id="2调用">2,调用：</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>TranslateAnimation cardAnimation = new MyTranslateAnimation(backgroundView, Animation.RELATIVE_TO_PARENT, 0.01f,
+				Animation.RELATIVE_TO_PARENT, 0.35f, Animation.RELATIVE_TO_PARENT, 0.1f, Animation.RELATIVE_TO_PARENT,
+				0.1f);
+cardAnimation.setDuration(2000);
+cardAnimation.setRepeatCount(Animation.INFINITE);
+cardAnimation.setRepeatMode(Animation.REVERSE);
+imageView.setAnimation(cardAnimation);
 </code></pre>
 </div>
-<p>重启后可以看到改变后的效果，1是字体大小，还可以设置为2，3，值越大字体的模糊感越强！</p>
 
-	<p><h3><a href="/other/macmini-font-adjustfy.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/animation-noline.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/vps/host-move-to-google-clould.html">
-    站点服务迁移到了Google Cloud
+  <a href="/read/an-egg-story.html">
+    一个鸡蛋的故事
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-05-07
+	2013-02-06
   </div>
 </h2>
 <hr>
-<p>前几天上网无意看到Google Cloud有开通账号赠送300美元(一年使用期限)的活动。这阵子SSH连接班瓦工机子很卡，令人心烦，打算抽空试试Google Cloud。今天周末宅在家正好有空，就将班瓦工上的服务做个整体迁移，包括一个ss VPN服务和目前这个网页访问服务。</p>
+<p>摘自某文摘一段话：<br />
+鸡蛋从外打破是食物，从内打破是生命。人生亦是，从外打破是压力，从内打破是成长。<br />
+如果你等待别人从外打破，那么你注定成为别人的食物，如果能让自己从内打破，那么你会发现自己的成长相当于一种重生。</p>
 
+<p>读完这段话，有何感想？</p>
 
-	<p><h3><a href="/vps/host-move-to-google-clould.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/read/an-egg-story.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/about-blog-architure.html">
-    谈谈我的博客是如何构建与发布的
+  <a href="/android/frame-ainim.html">
+    Android AnimationDrawable实现GIF效果动画
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-04-23
+	2013-02-06
   </div>
 </h2>
 <hr>
-<h2 id="1-概述">1. 概述</h2>
-<p>最近查看博客服务器的请求日志，发现其中有不少wp-admin.php的错误请求，像是在猜测博客的管理后台，大概认为我这个博客也是Wordpress搭建的吧。那今天就谈谈这个博客构建与发布用到的相关技术。</p>
+<p>利用AnimationDrawable实现类似gif效果的动画：</p>
 
+<div class="highlighter-rouge"><pre class="highlight"><code>final AnimationDrawable drawable = new AnimationDrawable();
+drawable.addFrame(activity.getResources().getDrawable(R.drawable.kaiguan), 750);//添加图片帧到AnimationDrawable
+drawable.addFrame(activity.getResources().getDrawable(R.drawable.kaiguan2), 1250);
+drawable.setOneShot(false);//设置为循环播放
+ImageView imageView = (ImageView)findViewById(R.id.imageView);
+imageView.setImageDrawable(drawable);//AnimationDrawable对象给imageView
+drawable.start();//动画播放
+drawable.stop();//动画停止
+</code></pre>
+</div>
 
-	<p><h3><a href="/web/about-blog-architure.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/frame-ainim.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/vps/about-banwagon-traps.html">
-    关于再次购买班瓦工VPS的坑！
+  <a href="/android/listview-faqs.html">
+    ListView与条目显示相关问题解决
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2017-03-16
+	2013-01-01
   </div>
 </h2>
 <hr>
-<p>前些天，眼看手里的一台VPS(班瓦工)就要到期了，正好看到官网上有更新套餐促销，心想手里在用的这台VPS一年来还比较满意，没多想就入手了一台，价格和手里这台相同但可用内存大了一倍。</p>
+<p>1.对一般布局如(LinearLayout)设置selector后,点击没有选中的效果，可设置其android:clickable=”true”即可。<br />
+2.对item_layout.xml设置selector后点击效果无效反而为系统效果时。可能是selector中颜色值使用了透明度，这是不行的，不能直接用带透明度的颜色。也可以把item_layout.xml中的selector换到ListView设置listSelector中去。</p>
 
 
-	<p><h3><a href="/vps/about-banwagon-traps.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/listview-faqs.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/nodejs-server-transfer.html">
-    VPS服务器环境切换至Node.js
+  <a href="/android/layer-drawable.html">
+    Android Resource下图片合成(LayerDrawable)
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-08-29
+	2012-12-22
   </div>
 </h2>
 <hr>
-<p>去年购买的VPS，原先是Ngnix(php,tomcat),mysql,sqlite组合，主要用来作静态博客服务，并顺便用作php, java服务学习时测试。</p>
+<h4 id="1给一个背景背景中的一部分可变的以下方法可以从resouce中合成动态改变userimg图片">1.给一个背景,背景中的一部分可变的,以下方法可以从Resouce中合成(动态改变userimg图片):</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>public LayerDrawable test(Context context, dynamicImg) {
+	LayerDrawable layerDrawable =(LayerDrawable) context.getResources().getDrawable(R.drawable.layerlist);
+	Drawable drawable = context.getResources().getDrawable(R.drawable.ic_launcher);
+	layerDrawable.setDrawableByLayerId(R.id.userimage, dynamicImg);
+	return layerDrawable;
+}
+</code></pre>
+</div>
 
 
-	<p><h3><a href="/web/nodejs-server-transfer.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/android/layer-drawable.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/web/nginx-multi-domain.html">
-    基于Nginx的Linux VPS 多域名空间配置
+  <a href="/web/jekyll-common-code.html">
+    Jekyll常用列表，标签代码
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-07-26
+	2012-12-16
   </div>
 </h2>
 <hr>
-<h4 id="一从虚拟主机说起">一、从虚拟主机说起</h4>
+<h4 id="1分类categorys">1.分类(Categorys)</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+			&lt;a href="/categories.html#read"&gt;
+			
+				read
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[10]&lt;/sup&gt;
+		, 
 
-<p>以前，在我印象中VPS都是很贵的，总舍不得花那价钱入手。那时，建站基本都是用虚拟主机，这东西不仅便宜，而且使用很简单，基本不需要我们作何配置。主机商们大都很贼，他们一般都允许在一个虚拟机绑定多个域名，然而这些绑定的域名都是指向同一个空间。当访问这些域名时，大家看到的是同一个网站。那么要想让多个域名访问时，各自到达的网站完全不一样，就得再购买新的虚拟空间来绑定域名了。</p>
+			&lt;a href="/categories.html#linux"&gt;
+			
+				linux
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[10]&lt;/sup&gt;
+		, 
+
+			&lt;a href="/categories.html#android"&gt;
+			
+				android
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[45]&lt;/sup&gt;
+		, 
+
+			&lt;a href="/categories.html#web"&gt;
+			
+			&lt;b&gt;web&lt;/b&gt;
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[21]&lt;/sup&gt;
+		, 
+
+			&lt;a href="/categories.html#program"&gt;
+			
+				program
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[9]&lt;/sup&gt;
+		, 
+
+			&lt;a href="/categories.html#git"&gt;
+			
+				git
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[6]&lt;/sup&gt;
+		, 
+
+			&lt;a href="/categories.html#vps"&gt;
+			
+				vps
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[4]&lt;/sup&gt;
+		, 
+
+			&lt;a href="/categories.html#react"&gt;
+			
+				react
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[2]&lt;/sup&gt;
+		, 
+
+			&lt;a href="/categories.html#other"&gt;
+			
+				other
+			
+			&lt;/a&gt;
+			&lt;sup&gt;[1]&lt;/sup&gt;
+		, 
+
+</code></pre>
+</div>
 
 
-	<p><h3><a href="/web/nginx-multi-domain.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/web/jekyll-common-code.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 <h2>
-  <a href="/react/webpack-basic-usage.html">
-    webpack打包入门教程
+  <a href="/android/simple-oauth-model.html">
+    基于Android+WebView的OAuth2.0认证过程分析及简单模型实现
   </a> 
   <div class="post-date">
 	<span class="glyphicon glyphicon-time"></span>
-	2016-06-29
+	2012-12-11
   </div>
 </h2>
 <hr>
-<p>最近学习React Native开发，了解了不少相关知识。顺便尝试了一下webpack，总结了几点其基本用法。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>A simple oauthv2 model for android by webview
+</code></pre>
+</div>
+
+<h4 id="一以androidwebview为例简要说明一下oauth20认证授权过程">一、以Android+WebView为例，简要说明一下OAuth2.0认证授权过程：</h4>
+<p>1，以在开放平台注册应用的appId,appSecret,callbackUrl，组装认证url，以WebView为桥梁，向开放平台认证中心发起认证请求。<br />
+2，认证中心判断应用来源，合法则跳转到用户授权界面(网页)，用户输入帐号及密码并同意授权则向认证中心发起授权。<br />
+3，认证中心对授权请求进行处理，以callbackUrl加参数的方式Rediret，这时拦截Rediret url后附带的参数即可知认证结果。<br />
+4，认证成功将获得open_id，access_token，refresh_token，expire_time等参数，用这些参数就可以向开放平台的业务层接口发起请求了。</p>
+
+<p>注：开放平台各异，OAuth2.0中appSecret也可能没用到，也不一定都返回了open_id这东西。</p>
+
+<h4 id="二测试">二、测试</h4>
+<p>运行apk后即可模拟认证授权，输入admin,888888就可以授权成功了。</p>
+
+	<p><h3><a href="/android/simple-oauth-model.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/web/jekyll-blog-guide.html">
+    Windows下Jekyll指南
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2012-12-10
+  </div>
+</h2>
+<hr>
+<p>提示：尽量用1.9.x版本的RubyInstaller，已含运行Jekyll所需的yajl依赖包。RubyInstallerv2.0以上版本需自行安装yajl-ruby，容易出错。</p>
+
+<h4 id="一安装ruby执行环境">一、安装Ruby执行环境</h4>
+<p>rubyinstaller-1.9.3-p392.exe,安装，很简单。<br />
+DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe，解压到C:\DevKit，然后cmd进入该目录执行：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ruby dk.rb init
+ruby dk.rb review
+ruby dk.rb install
+ruby --version
+</code></pre>
+</div>
+<p>输出ruby 1.9.3p392 (2013-02-22) [i386-mingw32]则表明Ruby安装成功。</p>
 
 
-	<p><h3><a href="/react/webpack-basic-usage.html">阅读全文 &raquo;</a></h3></p>
+	<p><h3><a href="/web/jekyll-blog-guide.html">阅读全文 &raquo;</a></h3></p>
+<hr>
+
+<h2>
+  <a href="/git/egit-rebase-step.html">
+    eclipse下Egit rebase 步骤
+  </a> 
+  <div class="post-date">
+	<span class="glyphicon glyphicon-time"></span>
+	2012-11-27
+  </div>
+</h2>
+<hr>
+<p>1.提交修改文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Team-&gt;commit
+``
+
+2.更新仓库文件  
+
+</code></pre>
+</div>
+<p>Team-&gt;Fetch-from-Upstream
+```</p>
+
+
+	<p><h3><a href="/git/egit-rebase-step.html">阅读全文 &raquo;</a></h3></p>
 <hr>
 
 
@@ -329,14 +463,14 @@ done</span>
 <ul class="pagination">
   
   <li>
-    <span>&laquo; Prev</span>
+    <a href="/index_7">&laquo; Prev</a>
   </li>
   
 
   
     
-    <li class="active">
-      <span>1</span>
+    <li>
+      <a href="/index.html">1</a>
     </li>
     
   
@@ -377,8 +511,8 @@ done</span>
     
   
     
-    <li>
-      <a href="/index_8.html">8</a>
+    <li class="active">
+      <span>8</span>
     </li>
     
   
@@ -403,7 +537,7 @@ done</span>
 
   
    <li>
-    <a href="/index_2.html">Next &raquo;</a>
+    <a href="/index_9.html">Next &raquo;</a>
    </li>
   
 </ul>
