@@ -10,7 +10,12 @@
 1.安装ruby运行环境(请自行搜索安装方法)。  
 2.安装bundler(gem install bundler)。  
 
-## 2.使用本项目作为博客模板，操作步骤
+## 2.博客项目准备
+1.注册一个Github账号（已有的忽略此步骤)。  
+2.新建博客项目，项目名称：你的用户名.github.io  
+3.将此博客项目克隆至本机。  
+
+## 3.使用本项目作为博客模板，操作步骤
 1,下载本项目代码，解压后放入博客项目根目录，然后cmd进入BLOGSYS目录，执行bundle install。  
 2,修改BLOGSYS/_config.yaml及BLOGSYS/about.md文件，以配置站点、栏目及个人信息。  
 3,修改BLOGSYS/_include目录下相关文件，以配置网站统计(analytics.html)，网友评论(comment.html)，右侧栏目(categories.html)等。  
@@ -22,18 +27,18 @@
 9,正常流程提交代码到Github。  
 10.查看实际效果。  
 
-## 3.本项目使用了
+## 4.本项目使用了
 1,CNZZ的网站统计服务，官网：http://cnzz.com  
 2,来必力的网友评论服务，官网：https://www.livere.com  
 3,Google 的Adsense广告，官网：https://www.google.com/adsense/login/zh_CN  
 如需查看或管理网站统计、评论或广告，请自行注册帐号，然后修改_includes目录下相关文件。  
 
-## 4.联系交流
+## 5.联系交流
 作者QQ：85902258  
 邮箱：email(winfirm#qq.com)  
 QQ交流群: 168563980   
 
-## 5.赞助
+## 6.赞助
 支付宝-请作者喝瓶农夫山泉.  
 <img width="200" height="200" src="https://www.panxw.com/images/donate_alipay.jpg"/>  
 微信-支持原创，分享价值.  
