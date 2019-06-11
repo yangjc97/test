@@ -27,7 +27,7 @@
 9,正常流程提交代码到Github。  
 10.查看实际效果。  
 
-## 4.本项目使用了
+## 4.本博客模板使用了
 1,CNZZ的网站统计服务，官网：http://cnzz.com  
 2,来必力的网友评论服务，官网：https://www.livere.com  
 3,Google 的Adsense广告，官网：https://www.google.com/adsense/login/zh_CN  
@@ -46,4 +46,3 @@ QQ交流群: 168563980
 
 ## License
     Apache 2.0
-
