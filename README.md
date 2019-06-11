@@ -2,11 +2,12 @@
 ================
 基于Jekyll+Github构建，支持PC与智能机访问。   
 特有功能：支持按栏目及标签的列表显示，栏目可分页显示。  
-博客地址：[http://www.panxw.com](http://www.panxw.com)  
-[项目代码](https://github.com/panxw/panxw.github.com)
+博客地址：[https://www.panxw.com](http://www.panxw.com)  
+项目代码：[项目代码](https://github.com/panxw/panxw.github.com)  
 
 ## 1.环境准备
-1.安装ruby环境。  
+由于项目使用了自定义插件(Gitpage不支持)，因此必须在本地运行插件以生成静态页面。  
+1.安装ruby运行环境。  
 2.安装bundler工具。(gem install bundler)。  
 
 ## 2.使用本项目作为博客模板，操作步骤
@@ -32,10 +33,10 @@
 邮箱：email(winfirm#qq.com)  
 QQ交流群: 168563980   
 
-## 5.赞助(请作者喝瓶农夫山泉*^_^*)  
-支付宝:  
+## 5.赞助
+支付宝-请作者喝瓶农夫山泉.  
 <img width="200" height="200" src="https://www.panxw.com/images/donate_alipay.jpg"/>  
-微信:  
+微信-支持原创，分享价值.  
 <img width="200" height="200" src="https://www.panxw.com/images/donate_weixin.jpg"/>
 
 ## License
