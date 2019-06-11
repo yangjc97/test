@@ -2,8 +2,8 @@
 ================
 基于Jekyll+Github构建，支持PC与智能机访问。   
 特有功能：支持按栏目及标签的列表显示，栏目分页显示。  
-地址：http://www.panxw.com  
-
+博客地址：[http://www.panxw.com](http://www.panxw.com)  
+[项目代码](https://github.com/panxw/panxw.github.com)
 ## 1.环境准备
 1.安装ruby环境。  
 2.安装bundler工具。(gem install bundler)。  
