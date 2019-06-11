@@ -11,11 +11,11 @@
 2.安装bundler(gem install bundler)。  
 
 ## 2.博客项目准备
-1.注册一个Github账号（已有的忽略此步骤)。  
+1.注册一个Github账号（已有账号者略过)。  
 2.新建博客项目，项目名称：你的用户名.github.io  
 3.将此博客项目克隆至本机。  
 
-## 3.使用本项目作为博客模板，操作步骤
+## 3.使用本博客模板操作步骤
 1,下载本项目代码，解压后放入博客项目根目录，然后cmd进入BLOGSYS目录，执行bundle install。  
 2,修改BLOGSYS/_config.yaml及BLOGSYS/about.md文件，以配置站点、栏目及个人信息。  
 3,修改BLOGSYS/_include目录下相关文件，以配置网站统计(analytics.html)，网友评论(comment.html)，右侧栏目(categories.html)等。  
