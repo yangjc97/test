@@ -30,8 +30,8 @@ QQ：85902258
 邮箱：email(winfirm#qq.com)  
 Github：https://github.com/panxw  
 
-## 6.赞助
-**^_^* 请作者喝杯农夫山泉！  
+## 6.赞助(请作者喝瓶农夫山泉**^_^*)
+
 支付宝:  
 <img width="200" height="200" src="https://www.panxw.com/images/donate_alipay.jpg"/>  
 微信:  
