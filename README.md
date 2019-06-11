@@ -2,7 +2,7 @@
 ================
 基于Jekyll+Github构建，支持PC与智能机访问。   
 特有功能：支持按栏目及标签的列表显示，栏目可分页显示。  
-博客地址：[https://www.panxw.com](http://www.panxw.com)  
+演示地址：[https://www.panxw.com](http://www.panxw.com)  
 项目代码：[项目代码](https://github.com/panxw/panxw.github.com)  
 
 ## 1.环境准备
