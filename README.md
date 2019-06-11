@@ -12,8 +12,9 @@
 
 ## 2.博客项目准备
 1.注册一个Github账号（已有账号者略过)。  
-2.新建博客项目，项目名称：你的用户名.github.io  
+2.新建博客项目，项目名称：username.github.io  
 3.将此博客项目克隆至本机。  
+注：username为你的github用户名  
 
 ## 3.使用本博客模板操作步骤
 1,下载本项目代码，解压后放入博客项目根目录，然后cmd进入BLOGSYS目录，执行bundle install。  
@@ -25,7 +26,7 @@
 7.查看运行效果: http://localhost:4000  
 8,将_site目录下所有文件复制到根目录。  
 9,正常流程提交代码到Github。  
-10.查看实际效果。  
+10.查看博客，地址：https://username.github.io  
 
 ## 4.本博客模板使用了
 1,CNZZ的网站统计服务，官网：http://cnzz.com  
