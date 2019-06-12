@@ -1,2 +1,4 @@
 User-agent: *
+Disallow: /BLOGSYS/
+Disallow: /blogsys/
 Sitemap: http://www.panxw.com/atom.xml
