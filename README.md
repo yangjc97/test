@@ -11,7 +11,7 @@
 2.安装bundler(gem install bundler)。  
 
 ## 2.博客项目准备
-1.注册一个Github账号（已有账号者略过)。  
+1.注册一个Github账号。  
 2.新建博客项目，项目名称：username.github.io  
 3.将该博客项目克隆至本地。  
 *注：username为你的github用户名*  
