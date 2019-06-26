@@ -41,11 +41,5 @@
 邮箱：email(winfirm#qq.com)  
 QQ交流群: 168563980   
 
-## 6.赞助
-支付宝-请作者喝瓶农夫山泉.  
-<img width="200" height="200" src="https://www.panxw.com/images/donate_alipay.jpg"/>  
-微信-支持原创，分享价值.  
-<img width="200" height="200" src="https://www.panxw.com/images/donate_weixin.jpg"/>
-
 ## License
     Apache 2.0
